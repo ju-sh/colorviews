@@ -1,0 +1,15 @@
+graft tests
+
+include LICENSE.md
+include CONTRIBUTING.md
+include CHANGELOG.md
+include Makefile
+include tox.ini
+include .pylintrc
+include .flake8
+include mypy.ini
+include .coveragerc
+
+exclude .bumpversion.cfg
+
+global-exclude __pycache__ *.pyc *.pyo

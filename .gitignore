@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.env/
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Editors
+*.sw[op]
+
+# Unit test / coverage reports
+.tox/
+.cache
+.coverage
+htmlcov/
+coverage.xml
