@@ -203,8 +203,7 @@ class BaseColorViewHSL(BaseColorView):
     @h.setter
     def h(self, val: float):
         utils.validate(val)
-        rgb = (self.color._r, self.color._g,
-               self.color._b)
+        rgb = (self.color._r, self.color._g, self.color._b)
         hls = colorsys.rgb_to_hls(*rgb)
         rgb = colorsys.hls_to_rgb(val, hls[1], hls[2])
         self.color._r, self.color._g, self.color._b = rgb
@@ -348,3 +347,165 @@ class ColorViewHSLA(BaseColorViewHSL, BaseAlphaColorView):
             a = hsla[3]
         self.color = cast("colors.AlphaColor", self.color)
         return self.color.from_hsla(h, s, l, a)
+
+
+class BaseColorViewHSV(BaseColorView):
+    """
+    Base class of ColorViewHSV and ColorViewHSVA classes.
+    """
+    __slots__: List[str] = []
+
+    @property
+    def h(self):
+        """Hue component as a float value"""
+        rgb = (self.color._r, self.color._g, self.color._b)
+        hsv = colorsys.rgb_to_hsv(*rgb)
+        return hsv[0]
+
+    @h.setter
+    def h(self, val: float):
+        utils.validate(val)
+        rgb = (self.color._r, self.color._g, self.color._b)
+        hsv = colorsys.rgb_to_hsv(*rgb)
+        rgb = colorsys.hsv_to_rgb(val, hsv[1], hsv[2])
+        self.color._r, self.color._g, self.color._b = rgb
+
+    @property
+    def s(self):
+        """Saturation component as a float value"""
+        rgb = (self.color._r, self.color._g, self.color._b)
+        hsv = colorsys.rgb_to_hsv(*rgb)
+        return hsv[1]
+
+    @s.setter
+    def s(self, val: float):
+        utils.validate(val)
+        rgb = (self.color._r, self.color._g, self.color._b)
+        hsv = colorsys.rgb_to_hsv(*rgb)
+        rgb = colorsys.hsv_to_rgb(hsv[0], val, hsv[2])
+        self.color._r, self.color._g, self.color._b = rgb
+
+    @property
+    def v(self):
+        """Value component as a float value"""
+        rgb = (self.color._r, self.color._g, self.color._b)
+        hsv = colorsys.rgb_to_hsv(*rgb)
+        return hsv[2]
+
+    @v.setter
+    def v(self, val: float):
+        utils.validate(val)
+        rgb = (self.color._r, self.color._g, self.color._b)
+        hsv = colorsys.rgb_to_hsv(*rgb)
+        rgb = colorsys.hsv_to_rgb(hsv[0], hsv[1], val)
+        self.color._r, self.color._g, self.color._b = rgb
+
+
+class ColorViewHSV(BaseColorViewHSV):
+    """
+    HSV view of Color objects in float values
+    """
+    __slots__: List[str] = []
+
+    def __iter__(self):
+        hsv = colorsys.rgb_to_hsv(*self.color.rgb.vals)
+        yield from hsv
+
+    @property
+    def vals(self) -> Sequence[float]:
+        """
+        Tuple of HSV values as floats.
+        """
+        return tuple(self)
+
+    @vals.setter
+    def vals(self, values: Sequence[float]):
+        if len(values) != 3:
+            raise ValueError("Needs exactly 3 floats")
+        utils.validate(values[0])
+        utils.validate(values[1])
+        utils.validate(values[2])
+        rgb = colorsys.hsv_to_rgb(values[0], values[1], values[2])
+        self.color = cast("colors.Color", self.color)
+        self.color.rgb.vals = rgb
+
+    def replace(self, h=None, s=None, v=None) -> "colors.Color":
+        """
+        Create a new Color object by replacing the HSV values of the Color
+        object associated with the colorview.
+
+        Arguments:
+          h: Hue component of HSV value as a float in the range [0, 0.1].
+          s: Saturation component of HSV value as a float in the
+             range [0, 0.1].
+          v: Value component of HSV value as a float in the range [0, 0.1].
+
+        Returns:
+          Color object with modified HSV values.
+        """
+        hsv = list(self)
+        if h is None:
+            h = hsv[0]
+        if s is None:
+            s = hsv[1]
+        if v is None:
+            v = hsv[2]
+        self.color = cast("colors.Color", self.color)
+        return self.color.from_hsv(h, s, v)
+
+
+class ColorViewHSVA(BaseColorViewHSV, BaseAlphaColorView):
+    """
+    HSVA view of Color objects in float values
+    """
+    __slots__: List[str] = []
+
+    def __iter__(self):
+        yield from [self.h, self.s, self.v, self.a]
+
+    @property
+    def vals(self) -> Sequence[float]:
+        """
+        Tuple of HSVA values as floats.
+        """
+        return tuple(self)
+
+    @vals.setter
+    def vals(self, values: Sequence[float]):
+        if len(values) != 4:
+            raise ValueError("Needs exactly 4 floats")
+        utils.validate(values[0])
+        utils.validate(values[1])
+        utils.validate(values[2])
+        utils.validate(values[3])
+        rgb = colorsys.hsv_to_rgb(values[0], values[1], values[2])
+        self.color = cast("colors.AlphaColor", self.color)
+        self.color.rgba.vals = rgb + (values[3], )
+
+    def replace(self, h=None, s=None, v=None, a=None) -> "colors.AlphaColor":
+        """
+        Create a new AlphaColor object by replacing the HSVA values of the
+        AlphaColor object associated with the colorview.
+
+        Arguments:
+          h: Hue component of HSVA value as a float in the range [0, 0.1].
+          s: Saturation component of HSVA value as a float in the
+             range [0, 0.1].
+          v: Value component of HSVA value as a float in the
+             range [0, 0.1].
+          a: Alpha component of HSVA value as a float in the range [0, 0.1].
+
+        Returns:
+          AlphaColor object with modified HSVA values.
+        """
+        hsva = list(self)
+        if h is None:
+            h = hsva[0]
+        if s is None:
+            s = hsva[1]
+        if v is None:
+            v = hsva[2]
+        if a is None:
+            a = hsva[3]
+        self.color = cast("colors.AlphaColor", self.color)
+        return self.color.from_hsva(h, s, v, a)

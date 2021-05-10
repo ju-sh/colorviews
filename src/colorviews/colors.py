@@ -93,6 +93,11 @@ class Color(BaseColor):
         """HSL colorview as float values"""
         return colorviews.views.ColorViewHSL(self)
 
+    @property
+    def hsv(self):
+        """HSV colorview as float values"""
+        return colorviews.views.ColorViewHSV(self)
+
     @classmethod
     def from_name(cls, name: str) -> 'Color':
         """
@@ -172,6 +177,30 @@ class Color(BaseColor):
         rgb = colorsys.hls_to_rgb(h, l, s)
         return cls(*rgb)
 
+    @classmethod
+    def from_hsv(cls, h: float, s: float, v: float) -> "Color":
+        """
+        Creates a Color object from the given HSV float values.
+
+        Arguments:
+          h: Hue component of HSV value as a float in the range [0.0, 1.0]
+          s: Saturation component of HSV value as a float in the
+             range [0.0, 1.0]
+          v: Value component of HSV value as a float in the
+             range [0.0, 1.0]
+
+        Returns:
+          Color object with given HSV values.
+
+        Raises:
+          ValueError: If any argument is outside valid range.
+        """
+        utils.validate(h)
+        utils.validate(s)
+        utils.validate(v)
+        rgb = colorsys.hsv_to_rgb(h, s, v)
+        return cls(*rgb)
+
 
 class AlphaColor(BaseColor):
     """
@@ -203,6 +232,11 @@ class AlphaColor(BaseColor):
     def hsla(self):
         """HSLA colorview as float values"""
         return colorviews.views.ColorViewHSLA(self)
+
+    @property
+    def hsva(self):
+        """HSVA colorview as float values"""
+        return colorviews.views.ColorViewHSVA(self)
 
     @classmethod
     def from_name(cls, name: str) -> "AlphaColor":
@@ -287,4 +321,30 @@ class AlphaColor(BaseColor):
         utils.validate(l)
         utils.validate(a)
         rgba = colorsys.hls_to_rgb(h, l, s) + (a, )
+        return cls(*rgba)
+
+    @classmethod
+    def from_hsva(cls, h: float, s: float, v: float, a: float) -> "AlphaColor":
+        """
+        Creates an AlphaColor object from the given HSVA float values.
+
+        Arguments:
+          h: Hue component of HSVA value as a float in the range [0.0, 1.0]
+          s: Saturation component of HSVA value as a float in the
+             range [0.0, 1.0].
+          v: Value component of HSVA value as a float in the
+             range [0.0, 1.0].
+          a: Alpha component of HSVA value as a float in the range [0.0, 1.0].
+
+        Returns:
+          AlphaColor object with given HSVA values.
+
+        Raises:
+          ValueError: If value is outside the valid range.
+        """
+        utils.validate(h)
+        utils.validate(s)
+        utils.validate(v)
+        utils.validate(a)
+        rgba = colorsys.hsv_to_rgb(h, s, v) + (a, )
         return cls(*rgba)

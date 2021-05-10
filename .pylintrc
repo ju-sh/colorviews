@@ -12,6 +12,7 @@ good-names=r,
            h,
            s,
            l,
+           v,
 
 [CLASSES]
 exclude-protected=_r,

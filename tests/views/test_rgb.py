@@ -47,18 +47,18 @@ class TestSetAttr:
             setattr(color.rgb, attr, 0.1)
 
 
-@pytest.mark.parametrize("r, g, b, expected", [
-    (91 / 0xff, None, None, 0x5b734a),
-    (None, 15 / 0xff, None, 0xbf0f4a),
-    (None, None, 174 / 0xff, 0xbf73ae),
-    (91 / 0xff, 15 / 0xff, None, 0x5b0f4a),
-    (91 / 0xff, None, 174 / 0xff, 0x5b73ae),
-    (None, 15 / 0xff, 174 / 0xff, 0xbf0fae),
-    (91 / 0xff, 15 / 0xff, 174 / 0xff, 0x5b0fae),
+@pytest.mark.parametrize("rgb_dict, expected", [
+    ({"r": 91 / 0xff}, 0x5b734a),
+    ({"g": 15 / 0xff}, 0xbf0f4a),
+    ({"b": 174 / 0xff}, 0xbf73ae),
+    ({"r": 91 / 0xff, "g": 15 / 0xff}, 0x5b0f4a),
+    ({"r": 91 / 0xff, "b": 174 / 0xff}, 0x5b73ae),
+    ({"g": 15 / 0xff, "b": 174 / 0xff}, 0xbf0fae),
+    ({"r": 91 / 0xff, "g": 15 / 0xff, "b": 174 / 0xff}, 0x5b0fae),
 ])
-def test_replace(r, g, b, expected):
+def test_replace(rgb_dict, expected):
     color = Color.from_rgb(0.75, 0.45, 0.29)  # rgb(191,115,74)
-    assert int(color.rgb.replace(r, g, b)) == expected
+    assert int(color.rgb.replace(**rgb_dict)) == expected
 
 
 class TestVals:

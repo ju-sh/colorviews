@@ -42,18 +42,18 @@ class TestSetAttr:
             setattr(color.hsl, attr, 0.1)
 
 
-@pytest.mark.parametrize("h, s, l, expected", [
-    (91 / 360, None, None, 0x496b29),
-    (None, 0.15, None, 0x4a3f55),
-    (None, None, 0.74, 0xbd9fdb),
-    (91 / 360, 0.15, None, 0x4a553f),
-    (91 / 360, None, 0.74, 0xbcdb9f),
-    (None, 15 / 100, 0.74, 0xbdb3c7),
-    (91 / 360, 15 / 100, 0.74, 0xbcc7b3),
+@pytest.mark.parametrize("hsl_dict, expected", [
+    ({"h": 91 / 360}, 0x496b29),
+    ({"s": 0.15}, 0x4a3f55),
+    ({"l": 0.74}, 0xbd9fdb),
+    ({"h": 91 / 360, "s": 0.15}, 0x4a553f),
+    ({"h": 91 / 360, "l": 0.74}, 0xbcdb9f),
+    ({"s": 0.15, "l": 0.74}, 0xbdb3c7),
+    ({"h": 91 / 360, "s": 0.15, "l": 0.74}, 0xbcc7b3),
 ])
-def test_replace(h, s, l, expected):
+def test_replace(hsl_dict, expected):
     color = Color.from_hsl(0.75, 0.45, 0.29)
-    assert int(color.hsl.replace(h, s, l)) == expected
+    assert int(color.hsl.replace(**hsl_dict)) == expected
 
 
 class TestVals:
