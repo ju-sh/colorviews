@@ -17,19 +17,19 @@ def validate(val: float) -> None:
         raise ValueError(f"{val}: Expected value in [0.0, 1.0]")
 
 
-def multround(val: float, multiplier: int) -> int:
+def scale(val: float, factor: int) -> int:
     """
-    Multiply val with multiplier and convert result to an integer with proper
+    Multiply val with factor and convert result to an integer with proper
     rounding.
 
     Arguments:
       val: Float value to rounded
-      multiplier: Value with which val is multiplied.
+      factor: Value with which val is multiplied.
 
     Returns:
-      Rounded integer value of the product of val and multiplier.
+      Rounded integer value of the product of val and factor.
     """
-    num = val * multiplier
+    num = val * factor
     floor_int = int(num)
     if num - floor_int < 0.5:
         return floor_int

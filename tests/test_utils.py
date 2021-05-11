@@ -1,6 +1,6 @@
 import pytest
 
-from colorviews.utils import validate, multround
+from colorviews.utils import validate, scale
 
 
 class TestValidate:
@@ -18,10 +18,10 @@ class TestValidate:
             validate(val)
 
 
-@pytest.mark.parametrize("val, multiplier, expected", [
+@pytest.mark.parametrize("val, factor, expected", [
     (0.5, 0xff, 128),
     (0.75, 100, 75),
     (0, 100, 0),
 ])
-def test_multround(val, multiplier, expected):
-    assert multround(val, multiplier) == expected
+def test_scale(val, factor, expected):
+    assert scale(val, factor) == expected

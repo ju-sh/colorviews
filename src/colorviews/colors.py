@@ -58,9 +58,9 @@ class BaseColor:
         self._b = b
 
     def __int__(self):
-        red = utils.multround(self._r, 0xff)
-        green = utils.multround(self._g, 0xff)
-        blue = utils.multround(self._b, 0xff)
+        red = utils.scale(self._r, 0xff)
+        green = utils.scale(self._g, 0xff)
+        blue = utils.scale(self._b, 0xff)
         intval = ((red << 16) | (green << 8) | blue)
         return intval
 
@@ -218,7 +218,7 @@ class AlphaColor(BaseColor):
         self._a = a
 
     def __int__(self):
-        alpha = utils.multround(self._a, 0xff)
+        alpha = utils.scale(self._a, 0xff)
         nonalphaint = super().__int__()
         intval = (nonalphaint << 8) | alpha
         return intval
