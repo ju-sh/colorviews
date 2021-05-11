@@ -131,3 +131,10 @@ def test_from_rgb():
 
 def test_from_hsl():
     assert int(Color.from_hsl(0.2583, 0.1515, 0.7412)) == 0xbcc7b3
+
+
+def test_copy():
+    orig = Color.from_hsl(0.2583, 0.1515, 0.7412)
+    copy = orig.copy()
+    assert id(orig) != id(copy)
+    assert orig.rgb.vals == copy.rgb.vals

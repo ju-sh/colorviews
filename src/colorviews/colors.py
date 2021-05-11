@@ -202,6 +202,15 @@ class Color(BaseColor):
         rgb = colorsys.hsv_to_rgb(h, s, v)
         return cls(*rgb)
 
+    def copy(self) -> "Color":
+        """
+        Creates a copy of the Color object.
+
+        Returns:
+          An identical copy of the Color object.
+        """
+        return Color(self._r, self._g, self._b)
+
 
 class AlphaColor(BaseColor):
     """
@@ -354,3 +363,12 @@ class AlphaColor(BaseColor):
         utils.validate(a)
         rgba = colorsys.hsv_to_rgb(h, s, v) + (a, )
         return cls(*rgba)
+
+    def copy(self) -> "AlphaColor":
+        """
+        Creates a copy of the AlphaColor object.
+
+        Returns:
+          An identical copy of the AlphaColor object.
+        """
+        return AlphaColor(self._r, self._g, self._b, self._a)

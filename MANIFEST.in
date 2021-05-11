@@ -1,4 +1,5 @@
 graft tests
+prune development
 
 include LICENSE.md
 include CONTRIBUTING.md
@@ -12,4 +13,4 @@ include .coveragerc
 
 exclude .bumpversion.cfg
 
-global-exclude __pycache__ *.pyc *.pyo
+global-exclude __pycache__ *.py[oc] *.sw[op]

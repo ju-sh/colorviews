@@ -29,7 +29,7 @@ With constructor or `Color.from_rgb(r: float, g: float, b: float)`.
     from colorviews import Color
     color = Color(0.2, 0.4, 0.8)  # <Color(0x3366cc)>
     color = Color.from_rgb(0.2, 0.4, 0.8)  # <Color(0x3366cc)>
-    
+
 ### From color RGB integer value
 With `Color.from_int(value: int)`.
 
@@ -47,14 +47,14 @@ With `Color.from_hsv(h: float, s: float, v: float)`.
 
     from colorviews import Color
     color = Color.from_hsv(0.5, 1.0, 0.52)  # <Color(0x8585)>
-    
+
 ### From color name
 With `Color.from_name()`.
 
 [CSS3 extended color keywords](https://www.w3.org/wiki/CSS3/Color/Extended_color_keywords) are recognized.
 
 Case of the color name doesn't matter.
-    
+
     from colorviews import Color
     color = Color.from_name("darkgrey")  # <Color(0xa9a9a9)>
 
@@ -368,26 +368,43 @@ But comparison between a `Color` object and a `AlphaColor` object is not support
 
     red_noalpha = Color.from_name("red")  # <Color(0xff0000)>
     red_alpha = AlphaColor.from_name("red")  # <AlphaColor(0xff0000)>
-    red_noalpha < red_alpha  # TypeError!
+    red_noalpha < red_alpha  # Exception!
+
+# Duplicating or copying color objects
+`copy()` method of the color classes can be used to duplicate a color object.
+
+    # Duplicating Color objects
+    color = Color.from_int(0xabcdef)  # <Color(0xabcdef)>
+    color_copy = color.copy()
+    id(color_copy) != id(color)  # True
+    
+    # Duplicating AlphaColor objects
+    alphacolor = AlphaColor.from_name("red")  # <AlphaColor(0xff0000)>
+    alphacolor_copy = alphacolor.copy()
+    id(alphacolor_copy) != id(alphacolor)  # True
 
 # Caveats
 The color component values are stored internally as RGB(A) float values in the [0.0, 1.0] range.
 
-For example,
+Depending on the way in which the color objects are created, there may be a slight difference in this RGB(A) values.
+
+For example, consider two AlphaColor objects where one as is made using an integer value and the other is made using RGBA values as in
 
     t1=cvs.AlphaColor.from_int(0xffffff80)  # <AlphaColor(0xffffff80)>
     t2=cvs.AlphaColor.from_rgba(1,1,1,0.5)  # <AlphaColor(0xffffff80)>
 
 Both `t1` and `t2` would have the same integer value.
 
-    t1==t2  # True
+    t1 == t2  # True
 
 But their alpha values would be slighlty different.
 
     t1.rgba.a  # 0.5019607843137255
     t2.rgba.a  # 0.5
 
+This is because the alpha value 0x80 being converted to its float equivalent like
 
+    0x80 / 0xff  # 0.5019607843137255
 
 
 
@@ -499,6 +516,15 @@ Arguments:
 Returns: `Color` object of given HSV value.
 
 
+```
+Color.copy()
+```
+
+Duplicate the Color object.
+
+Returns: A separate copy of the `Color` object.
+
+
 ## AlphaColor objects
 Represents colors with alpha value.
 
@@ -601,6 +627,16 @@ Arguments:
  - `a`: Value of alpha component.
 
 Returns: `AlphaColor` object of given HSVA value.
+
+
+```
+AlphaColor.copy()
+```
+
+Duplicate the AlphaColor object.
+
+Returns: A separate copy of the `AlphaColor` object.
+
 
 ## ColorViewRGB objects
 RGB color view for `Color` objects.
@@ -822,4 +858,3 @@ Arguments:
  - `factor`: Scaling factor.
 
 Returns: Integer closest to the product of `val` and `factor`.
-

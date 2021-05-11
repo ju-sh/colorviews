@@ -94,3 +94,10 @@ def test_hex():
 def test_from_name(name, a, expected):
     color = AlphaColor.from_name(name, a)
     assert int(color) == expected
+
+
+def test_copy():
+    orig = AlphaColor.from_hsla(0.2583, 0.1515, 0.7412, 0.25)
+    copy = orig.copy()
+    assert id(orig) != id(copy)
+    assert orig.rgba.vals == copy.rgba.vals

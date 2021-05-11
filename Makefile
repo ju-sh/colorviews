@@ -1,7 +1,7 @@
 update_upload: dist/
 	python3 -m twine upload --skip-existing dist/* 
 
-.PHONY: build purge_cache clean cov test mypy pylint flake8 check-manifest
+.PHONY: build purge_cache clean cov test mypy pylint flake8 check-manifest bumpversion
 
 build:
 	rm -rf build/ dist/ src/colorviews.egg-info/
@@ -30,3 +30,9 @@ flake8:
 
 check-manifest:
 	check-manifest .
+
+vulture:
+	vulture . whitelist.py
+
+bumpversion:
+	#bumpversion
