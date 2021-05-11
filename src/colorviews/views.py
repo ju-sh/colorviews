@@ -5,11 +5,13 @@ For Color:
 
  - ColorViewRGB
  - ColorViewHSL
+ - ColorViewHSV
 
 For AlphaColor:
 
  - ColorViewRGBA
  - ColorViewHSLA
+ - ColorViewHSVA
 """
 
 import colorsys

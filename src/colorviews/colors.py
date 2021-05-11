@@ -16,35 +16,6 @@ class BaseColor:
     """
     Base class of all Color classes.
     """
-    def __lt__(self, other: object):
-        if isinstance(other, self.__class__):
-            return int(self) < int(other)
-        return NotImplemented
-
-    def __le__(self, other: object):
-        if isinstance(other, self.__class__):
-            return int(self) <= int(other)
-        return NotImplemented
-
-    def __eq__(self, other: object):
-        if isinstance(other, self.__class__):
-            return int(self) == int(other)
-        return NotImplemented
-
-    def __ne__(self, other: object):
-        if isinstance(other, self.__class__):
-            return int(self) != int(other)
-        return NotImplemented
-
-    def __gt__(self, other: object):
-        if isinstance(other, self.__class__):
-            return int(self) > int(other)
-        return NotImplemented
-
-    def __ge__(self, other: object):
-        if isinstance(other, self.__class__):
-            return int(self) >= int(other)
-        return NotImplemented
 
     def __init__(self,
                  r: float,
@@ -75,6 +46,36 @@ class BaseColor:
     def __index__(self):
         # for hex()
         return int(self)
+
+    def __lt__(self, other: object):
+        if isinstance(other, self.__class__):
+            return int(self) < int(other)
+        return NotImplemented
+
+    def __le__(self, other: object):
+        if isinstance(other, self.__class__):
+            return int(self) <= int(other)
+        return NotImplemented
+
+    def __eq__(self, other: object):
+        if isinstance(other, self.__class__):
+            return int(self) == int(other)
+        return NotImplemented
+
+    def __ne__(self, other: object):
+        if isinstance(other, self.__class__):
+            return int(self) != int(other)
+        return NotImplemented
+
+    def __gt__(self, other: object):
+        if isinstance(other, self.__class__):
+            return int(self) > int(other)
+        return NotImplemented
+
+    def __ge__(self, other: object):
+        if isinstance(other, self.__class__):
+            return int(self) >= int(other)
+        return NotImplemented
 
 
 class Color(BaseColor):

@@ -1,5 +1,5 @@
 import pytest
-from colorviews import Color
+from colorviews import Color, AlphaColor
 
 
 class TestComparisons:
@@ -45,6 +45,19 @@ class TestComparisons:
         color = Color.from_int(0xefab3)
         assert getattr(color, func)(arg) == NotImplemented
 
+    @pytest.mark.parametrize("func", [
+        "__lt__",
+        "__le__",
+        "__gt__",
+        "__ge__",
+        "__eq__",
+        "__ne__",
+    ])
+    def test_alphacolor_comparison(self, func):
+        color = Color.from_int(0xefab3)
+        alphacolor = AlphaColor.from_name("red")
+        assert getattr(color, func)(alphacolor) == NotImplemented
+
 
 class TestFromInt:
     @pytest.mark.parametrize("colorint, rgb", [
@@ -81,6 +94,15 @@ class TestFromHSL:
     def test_invalid(self):
         with pytest.raises(ValueError):
             Color.from_hsl(25, 1.0, 0.74)
+
+
+class TestFromHSV:
+    def test_valid(self):
+        assert int(Color.from_hsv(0.625, 0.15, 0.74)) == 0xa0a7bd
+
+    def test_invalid(self):
+        with pytest.raises(ValueError):
+            Color.from_hsv(25, 1.0, 0.74)
 
 
 def test_str():
