@@ -239,22 +239,27 @@ class AlphaColor(BaseColor):
         return colorviews.views.ColorViewHSVA(self)
 
     @classmethod
-    def from_name(cls, name: str) -> "AlphaColor":
+    def from_name(cls, name: str, a: float = 0.0) -> "AlphaColor":
         """
         Creates an AlphaColor object based on the given color name.
 
         Only CSS3 extended color keyword names are recognized.
-        Returned AlphaColor would be totally transparent with alpha value 0.
 
         Arguments:
           name: Name of color.
+          a: Alpha value of color as a float in the range [0.0, 1.0].
+             Default value is 0.0
 
         Returns:
-          AlphaColor object with value corresponding to the given color name.
+          AlphaColor object with value corresponding to the given color name
+          and alpha value.
         """
+        utils.validate(a)
+        a_int = int(a * 0xff)
         name = name.lower()
-        rgbintval = colorviews.names.COLORS[name]
-        return cls.from_int(rgbintval << 8)  # by default transparent
+        rgb_intval = colorviews.names.COLORS[name]
+        rgba_intval = (rgb_intval << 8) | a_int
+        return cls.from_int(rgba_intval)
 
     @classmethod
     def from_int(cls, value: int) -> "AlphaColor":

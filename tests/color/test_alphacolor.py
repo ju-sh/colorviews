@@ -28,6 +28,10 @@ def test_hex():
     assert hex(color) == "0xabcdef12"
 
 
-def test_from_name():
-    color = AlphaColor.from_name("gray")
-    assert int(color) == 0x80808000
+@pytest.mark.parametrize("name, a, expected", [
+    ("gray", 0.0, 0x80808000),
+    ("red", 0.4, 0xff000066),
+])
+def test_from_name(name, a, expected):
+    color = AlphaColor.from_name(name, a)
+    assert int(color) == expected
