@@ -5,7 +5,7 @@ long_description = pathlib.Path("README.md").read_text()
 
 setuptools.setup(
     name="colorviews",
-    version="0.1",
+    version="0.1-alpha0",
     author="Julin S",
     author_email="",
     description="A simple module to handle colors",
@@ -20,6 +20,7 @@ setuptools.setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
     ],
     project_urls={
         'Changelog': 'https://github.com/ju-sh/colorviews/blob/master/CHANGELOG.md',

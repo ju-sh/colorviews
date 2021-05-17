@@ -1,11 +1,11 @@
 # colorviews
 
-Colors are stored in terms of their RGB(A) values, which are then converted to other formats via instances of ColorView classes.
+A module to handle colors.
 
 ---
 
 # Quickstart
-Colors may be represented using `Color` (colors without alpha) and `AlphaColor` (colors with alpha value) objects.
+Colors may be represented using `Color` (for colors without alpha value) and `AlphaColor` (for colors with alpha value) objects.
 
 All colors are stored internally using their RGB(A) values and are converted to other color schemes when needed using appropriate ColorView objects.
 
@@ -21,9 +21,9 @@ All color component values are handled as float values between and including 0.0
 These float values may be converted to their integer equivalent using `scale()`function of the colorviews package.
 
 ## Creating Color objects
-`Color` objects can be created in multiple ways.
+`Color` objects can be created in one of the following ways.
 
-###  From RGB values
+### From RGB values
 With constructor or `Color.from_rgb(r: float, g: float, b: float)`.
 
     from colorviews import Color
@@ -74,29 +74,31 @@ RGB color view has the following attributes which may be read or written:
  - `b`: blue component of RGB color value.
  - `vals`: red, green and blue components as a tuple.
 
-    from colorviews import Color
-    color = Color.from_int(0xabcdef)  # <Color(0xabcdef)>
-    
-    # Red component
-    color.rgb.r  # 0.6705882352941176
+```
+from colorviews import Color
+color = Color.from_int(0xabcdef)  # <Color(0xabcdef)>
 
-    # Green component
-    color.rgb.g  # 0.803921568627451
+# Red component
+color.rgb.r  # 0.6705882352941176
 
-    # Blue component
-    color.rgb.b  # 0.9372549019607843
+# Green component
+color.rgb.g  # 0.803921568627451
 
-    # All RGB components as a tuple
-    color.rgb.vals  # (0.6705882352941176, 0.803921568627451,
-                    #  0.9372549019607843)
+# Blue component
+color.rgb.b  # 0.9372549019607843
 
-    # New red component value
-    color.rgb.r = 0.52
-    color.rgb.vals  # (0.52, 0.803921568627451, 0.9372549019607843)
+# All RGB components as a tuple
+color.rgb.vals  # (0.6705882352941176, 0.803921568627451,
+                #  0.9372549019607843)
 
-    # Change all RGB values
-    color.rgb.vals = (0.25, 0.50, 0.75)
-    color  # <Color(0x4080bf)>
+# New red component value
+color.rgb.r = 0.52
+color.rgb.vals  # (0.52, 0.803921568627451, 0.9372549019607843)
+
+# Change all RGB values
+color.rgb.vals = (0.25, 0.50, 0.75)
+color  # <Color(0x4080bf)>
+```
 
 ### HSL color view
 HSL color view has the following attributes which may be read or written:
@@ -106,28 +108,30 @@ HSL color view has the following attributes which may be read or written:
  - `l`: lightness component of HSL color value.
  - `vals`: hue, saturation and lightness components as a tuple.
 
-    from colorviews import Color
-    color = Color.from_int(0xabcdef)  # <Color(0xabcdef)>
-    
-    # Hue component
-    color.hsl.h  # 0.5833333333333334
+```
+from colorviews import Color
+color = Color.from_int(0xabcdef)  # <Color(0xabcdef)>
 
-    # Saturation component
-    color.hsl.s  # 0.68
+# Hue component
+color.hsl.h  # 0.5833333333333334
 
-    # Lightness component
-    color.hsl.l  # 0.803921568627451
+# Saturation component
+color.hsl.s  # 0.68
 
-    # All HSL components as a tuple
-    color.hsl.vals  # (0.5833333333333334, 0.68, 0.803921568627451)
+# Lightness component
+color.hsl.l  # 0.803921568627451
 
-    # New saturation component value
-    color.hsl.s = 0.87
-    color.hsl.vals  # (0.5833333333333334, 0.8700000000000002, 0.68)
+# All HSL components as a tuple
+color.hsl.vals  # (0.5833333333333334, 0.68, 0.803921568627451)
 
-    # Change all HSL values
-    color.hsl.vals = (0.25, 0.50, 0.75)
-    color  # <Color(0xbfdf9f)>
+# New saturation component value
+color.hsl.s = 0.87
+color.hsl.vals  # (0.5833333333333334, 0.8700000000000002, 0.68)
+
+# Change all HSL values
+color.hsl.vals = (0.25, 0.50, 0.75)
+color  # <Color(0xbfdf9f)>
+```
 
 ### HSV color view
 HSV color view has the following attributes which may be read or written:
@@ -137,29 +141,31 @@ HSV color view has the following attributes which may be read or written:
  - `v`: value component of HSV color value.
  - `vals`: hue, saturation and value components as a tuple.
 
-    from colorviews import Color
-    color = Color.from_int(0xabcdef)  # <Color(0xabcdef)>
-    
-    # Hue component
-    color.hsv.h  # 0.5833333333333334
+```
+from colorviews import Color
+color = Color.from_int(0xabcdef)  # <Color(0xabcdef)>
 
-    # Saturation component
-    color.hsv.s  # 0.2845188284518829
+# Hue component
+color.hsv.h  # 0.5833333333333334
 
-    # Value component
-    color.hsv.v  # 0.9372549019607843
+# Saturation component
+color.hsv.s  # 0.2845188284518829
 
-    # All HSV components as a tuple
-    color.hsv.vals
-    # (0.5833333333333334, 0.2845188284518829, 0.9372549019607843)
+# Value component
+color.hsv.v  # 0.9372549019607843
 
-    # New hue component value
-    color.hsv.h = 0.82
-    color.hsv.vals  # (0.82, 0.6799999999999992, 0.803921568627451)
+# All HSV components as a tuple
+color.hsv.vals
+# (0.5833333333333334, 0.2845188284518829, 0.9372549019607843)
 
-    # Change all HSV values
-    color.hsv.vals = (0.25, 0.50, 0.75)
-    color  # <Color(0x8fbf60)>
+# New hue component value
+color.hsv.h = 0.82
+color.hsv.vals  # (0.82, 0.6799999999999992, 0.803921568627451)
+
+# Change all HSV values
+color.hsv.vals = (0.25, 0.50, 0.75)
+color  # <Color(0x8fbf60)>
+```
 
 ## Creating AlphaColor objects
 
@@ -168,44 +174,56 @@ HSV color view has the following attributes which may be read or written:
 ###  From RGBA values
 With the constructor or `AlphaColor.from_rgba(r: float, g: float, b: float, a: float)`.
 
-    from colorviews import AlphaColor
-    color = AlphaColor(0.2, 0.4, 0.8, 0.5)  # <AlphaColor(0x3366cc80)>
-    color = AlphaColor.from_rgba(0.2, 0.4, 0.8, 0.75)  # <AlphaColor(0x3366ccbf)>
+```
+from colorviews import AlphaColor
+color = AlphaColor(0.2, 0.4, 0.8, 0.5)  # <AlphaColor(0x3366cc80)>
+color = AlphaColor.from_rgba(0.2, 0.4, 0.8, 0.75)  # <AlphaColor(0x3366ccbf)>
+```
     
 ### From color RGBA integer value
 With `AlphaColor.from_int()`.
 
-    from colorviews import AlphaColor
-    color = AlphaColor.from_int(0xabcdef80)  # <AlphaColor(0xabcdef80)>
+```
+from colorviews import AlphaColor
+color = AlphaColor.from_int(0xabcdef80)  # <AlphaColor(0xabcdef80)>
+```
 
 ### From HSLA values
 With `AlphaColor.from_hsla(h: float, s: float, l: float, a: float)`.
 
-    from colorviews import AlphaColor
-    color = AlphaColor.from_hsla(0.5, 1.0, 0.52, 0.8)  # <AlphaColor(0xaffffcc)>
+```
+from colorviews import AlphaColor
+color = AlphaColor.from_hsla(0.5, 1.0, 0.52, 0.8)  # <AlphaColor(0xaffffcc)>
+```
     
 ### From HSVA values
 With `Color.from_hsva(h: float, s: float, v: float, a: float)`.
 
-    from colorviews import AlphaColor
-    color = AlphaColor.from_hsva(0.5, 1.0, 0.52, 0.8)  # <AlphaColor(0x8585cc)>
+```
+from colorviews import AlphaColor
+color = AlphaColor.from_hsva(0.5, 1.0, 0.52, 0.8)  # <AlphaColor(0x8585cc)>
+```
     
 ### From color name
 With `AlphaColor.from_name()`.
 
 Just like `Color.from_name()` but with an alpha value which is set to zero.
     
-    from colorviews import AlphaColor
-    color = AlphaColor.from_name("darkgrey")  # <AlphaColor(0xa9a9a900)>
+```
+from colorviews import AlphaColor
+color = AlphaColor.from_name("darkgrey")  # <AlphaColor(0xa9a9a900)>
+```
 
 
 ## Accessing color component values
 ### Hex value of color
 
-    from colorviews import AlphaColor
-    color = AlphaColor.from_int(0xabcdef80)  # <AlphaColor(0xabcdef80)>
-    hex(color)  # '0xabcdef80'
-    str(color)  # 'abcdef80'
+```
+from colorviews import AlphaColor
+color = AlphaColor.from_int(0xabcdef80)  # <AlphaColor(0xabcdef80)>
+hex(color)  # '0xabcdef80'
+str(color)  # 'abcdef80'
+```
 
 ### RGBA color view
 RGBA color view has the following attributes which may be read or written:
@@ -216,33 +234,35 @@ RGBA color view has the following attributes which may be read or written:
  - `a`: alpha component of RGBA color value.
  - `vals`: red, green and blue components as a tuple.
 
-    from colorviews import AlphaColor
-    color = AlphaColor.from_int(0xabcdef80)  # <AlphaColor(0xabcdef80)>
-    
-    # Red component
-    color.rgba.r  # 0.6705882352941176
+```
+from colorviews import AlphaColor
+color = AlphaColor.from_int(0xabcdef80)  # <AlphaColor(0xabcdef80)>
 
-    # Green component
-    color.rgba.g  # 0.803921568627451
+# Red component
+color.rgba.r  # 0.6705882352941176
 
-    # Blue component
-    color.rgba.b  # 0.9372549019607843
+# Green component
+color.rgba.g  # 0.803921568627451
 
-    # Alpha component
-    color.rgba.a  # 0.5019607843137255
+# Blue component
+color.rgba.b  # 0.9372549019607843
 
-    # All RGBA components as a tuple
-    color.rgba.vals
-    # (0.6705882352941176, 0.803921568627451, 0.9372549019607843,
-    #  0.5019607843137255)
+# Alpha component
+color.rgba.a  # 0.5019607843137255
 
-    # New red component value
-    color.rgba.r = 0.52
-    color.rgba.vals  # (0.52, 0.803921568627451, 0.9372549019607843)
+# All RGBA components as a tuple
+color.rgba.vals
+# (0.6705882352941176, 0.803921568627451, 0.9372549019607843,
+#  0.5019607843137255)
 
-    # Change all RGBA values
-    color.rgba.vals = (0.25, 0.50, 0.75, 0.2)
-    color  # <AlphaColor(0x4080bf33)>
+# New red component value
+color.rgba.r = 0.52
+color.rgba.vals  # (0.52, 0.803921568627451, 0.9372549019607843)
+
+# Change all RGBA values
+color.rgba.vals = (0.25, 0.50, 0.75, 0.2)
+color  # <AlphaColor(0x4080bf33)>
+```
 
 ### HSLA color view
 HSLA color view has the following attributes which may be read or written:
@@ -253,33 +273,35 @@ HSLA color view has the following attributes which may be read or written:
  - `a`: alpha component of HSLA color value.
  - `vals`: hue, saturation and lightness components as a tuple.
 
-    from colorviews import AlphaColor
-    color = AlphaColor.from_int(0xabcdef80)  # <AlphaColor(0xabcdef80)>
-    
-    # Hue component
-    color.hsla.h  # 0.5833333333333334
+```
+from colorviews import AlphaColor
+color = AlphaColor.from_int(0xabcdef80)  # <AlphaColor(0xabcdef80)>
 
-    # Saturation component
-    color.hsla.s  # 0.68
+# Hue component
+color.hsla.h  # 0.5833333333333334
 
-    # Lightness component
-    color.hsla.l  # 0.803921568627451
+# Saturation component
+color.hsla.s  # 0.68
 
-    # Alpha component
-    color.hsla.a  # 0.5019607843137255
+# Lightness component
+color.hsla.l  # 0.803921568627451
 
-    # All HSLA components as a tuple
-    color.hsla.vals
-    # (0.5833333333333334, 0.68, 0.803921568627451, 0.5019607843137255)
+# Alpha component
+color.hsla.a  # 0.5019607843137255
 
-    # New lightness component value
-    color.hsla.l = 0.24
-    color.hsla.vals
-    # (0.5833333333333334, 0.803921568627451, 0.24, 0.5019607843137255)
+# All HSLA components as a tuple
+color.hsla.vals
+# (0.5833333333333334, 0.68, 0.803921568627451, 0.5019607843137255)
 
-    # Change all HSLA values
-    color.hsla.vals = (0.25, 0.50, 0.75, 0.2)
-    color  # <AlphaColor(0xbfdf9f33)>
+# New lightness component value
+color.hsla.l = 0.24
+color.hsla.vals
+# (0.5833333333333334, 0.803921568627451, 0.24, 0.5019607843137255)
+
+# Change all HSLA values
+color.hsla.vals = (0.25, 0.50, 0.75, 0.2)
+color  # <AlphaColor(0xbfdf9f33)>
+```
 
 ### HSVA color view
 HSVA color view has the following attributes which may be read or written:
@@ -290,34 +312,36 @@ HSVA color view has the following attributes which may be read or written:
  - `a`: alpha component of HSVA color value.
  - `vals`: hue, saturation and value components as a tuple.
 
-    from colorviews import AlphaColor
-    color = AlphaColor.from_int(0xabcdef80)  # <AlphaColor(0xabcdef80)>
-    
-    # Hue component
-    color.hsva.h  # 0.5833333333333334
+```
+from colorviews import AlphaColor
+color = AlphaColor.from_int(0xabcdef80)  # <AlphaColor(0xabcdef80)>
 
-    # Saturation component
-    color.hsva.s  # 0.2845188284518829
+# Hue component
+color.hsva.h  # 0.5833333333333334
 
-    # Value component
-    color.hsva.v  # 0.9372549019607843
+# Saturation component
+color.hsva.s  # 0.2845188284518829
 
-    # Alpha component
-    color.hsva.a  # 0.5019607843137255
+# Value component
+color.hsva.v  # 0.9372549019607843
 
-    # All HSVA components as a tuple
-    color.hsva.vals
-    # (0.5833333333333334, 0.2845188284518829, 0.9372549019607843,
-    #  0.5019607843137255)
+# Alpha component
+color.hsva.a  # 0.5019607843137255
 
-    # New value (brightness) component value
-    color.hsva.v = 0.11
-    color.hsva.vals
-    # (0.5833333333333334, 0.28451882845188287, 0.11, 0.5019607843137255)
+# All HSVA components as a tuple
+color.hsva.vals
+# (0.5833333333333334, 0.2845188284518829, 0.9372549019607843,
+#  0.5019607843137255)
 
-    # Change all HSVA values
-    color.hsva.vals = (0.25, 0.50, 0.75, 0.2)
-    color  # <AlphaColor(0x8fbf6033)>
+# New value (brightness) component value
+color.hsva.v = 0.11
+color.hsva.vals
+# (0.5833333333333334, 0.28451882845188287, 0.11, 0.5019607843137255)
+
+# Change all HSVA values
+color.hsva.vals = (0.25, 0.50, 0.75, 0.2)
+color  # <AlphaColor(0x8fbf6033)>
+```
 
 
 # Converting values to int equivalent
@@ -327,61 +351,71 @@ It multiplies a value with another scaling factor and returns this product value
 
 For example,
 
-    from colorviews import Color, AlphaColor, scale
-    color = Color.from_int(0xabcdef)
-    alphacolor = AlphaColor.from_int(0xabcdef80)
+```
+from colorviews import Color, AlphaColor, scale
+color = Color.from_int(0xabcdef)
+alphacolor = AlphaColor.from_int(0xabcdef80)
 
-    # Unsigned integer values: [0.0, 1.0] -> [0, 255]
-    red = [color.rgb.r, scale(color.rgb.r, 255)]
-    # [0.6705882352941176, 171]
+# Unsigned integer values: [0.0, 1.0] -> [0, 255]
+red = [color.rgb.r, scale(color.rgb.r, 255)]
+# [0.6705882352941176, 171]
 
-    # Percentage values: [0.0, 1.0] -> [0, 100]
-    alpha = [alphacolor.hsla.a, scale(alphacolor.hsla.a, 100)]
-    # [0.5019607843137255, 50]
+# Percentage values: [0.0, 1.0] -> [0, 100]
+alpha = [alphacolor.hsla.a, scale(alphacolor.hsla.a, 100)]
+# [0.5019607843137255, 50]
 
-    # Angle value in degrees: [0.0, 1.0] -> [0, 360)
-    hue = [color.hsv.h, scale(color.hsv.h, 360)]
-    # [0.5833333333333334, 210]
+# Angle value in degrees: [0.0, 1.0] -> [0, 360)
+hue = [color.hsv.h, scale(color.hsv.h, 360)]
+# [0.5833333333333334, 210]
+```
 
 # Comparing colors
 Colors can be compared using the usual comparison operators.
 
 Comparions will done based on the integer RGB(A) values.
 
-    darkred = Color.from_name("darkred")  # <Color(0x8b0000)>
-    crimson = Color.from_name("crimson")  # <Color(0xdc143c)>
-    crimson < darkred  # False
-    crimson > darkred  # True
-    crimson <= darkred  # False
-    crimson >= darkred  # True
-    crimson == darkred  # False
-    crimson != darkred  # True
+```
+darkred = Color.from_name("darkred")  # <Color(0x8b0000)>
+crimson = Color.from_name("crimson")  # <Color(0xdc143c)>
+crimson < darkred  # False
+crimson > darkred  # True
+crimson <= darkred  # False
+crimson >= darkred  # True
+crimson == darkred  # False
+crimson != darkred  # True
+```
 
 Likewise with `AlphaColor`:
 
-    faint_red = AlphaColor.from_name("red", 0.5)  # <AlphaColor(0xff000080)>
-    fainter_red = AlphaColor.from_name("red", 0.2)  # <AlphaColor(0xff000033)>
-    faint_red < fainter_red  # False
-    faint_red > fainter_red  # True
+```
+faint_red = AlphaColor.from_name("red", 0.5)  # <AlphaColor(0xff000080)>
+fainter_red = AlphaColor.from_name("red", 0.2)  # <AlphaColor(0xff000033)>
+faint_red < fainter_red  # False
+faint_red > fainter_red  # True
+```
     
 But comparison between a `Color` object and a `AlphaColor` object is not supported. Even when their RGB values match.
 
-    red_noalpha = Color.from_name("red")  # <Color(0xff0000)>
-    red_alpha = AlphaColor.from_name("red")  # <AlphaColor(0xff0000)>
-    red_noalpha < red_alpha  # Exception!
+```
+red_noalpha = Color.from_name("red")  # <Color(0xff0000)>
+red_alpha = AlphaColor.from_name("red")  # <AlphaColor(0xff0000)>
+red_noalpha < red_alpha  # Exception!
+```
 
 # Duplicating or copying color objects
 `copy()` method of the color classes can be used to duplicate a color object.
 
-    # Duplicating Color objects
-    color = Color.from_int(0xabcdef)  # <Color(0xabcdef)>
-    color_copy = color.copy()
-    id(color_copy) != id(color)  # True
-    
-    # Duplicating AlphaColor objects
-    alphacolor = AlphaColor.from_name("red")  # <AlphaColor(0xff0000)>
-    alphacolor_copy = alphacolor.copy()
-    id(alphacolor_copy) != id(alphacolor)  # True
+```
+# Duplicating Color objects
+color = Color.from_int(0xabcdef)  # <Color(0xabcdef)>
+color_copy = color.copy()
+id(color_copy) != id(color)  # True
+
+# Duplicating AlphaColor objects
+alphacolor = AlphaColor.from_name("red")  # <AlphaColor(0xff0000)>
+alphacolor_copy = alphacolor.copy()
+id(alphacolor_copy) != id(alphacolor)  # True
+```
 
 # Caveats
 The color component values are stored internally as RGB(A) float values in the [0.0, 1.0] range.
@@ -390,21 +424,29 @@ Depending on the way in which the color objects are created, there may be a slig
 
 For example, consider two AlphaColor objects where one as is made using an integer value and the other is made using RGBA values as in
 
-    t1=cvs.AlphaColor.from_int(0xffffff80)  # <AlphaColor(0xffffff80)>
-    t2=cvs.AlphaColor.from_rgba(1,1,1,0.5)  # <AlphaColor(0xffffff80)>
+```
+t1=cvs.AlphaColor.from_int(0xffffff80)  # <AlphaColor(0xffffff80)>
+t2=cvs.AlphaColor.from_rgba(1,1,1,0.5)  # <AlphaColor(0xffffff80)>
+```
 
 Both `t1` and `t2` would have the same integer value.
 
-    t1 == t2  # True
+```
+t1 == t2  # True
+```
 
 But their alpha values would be slighlty different.
 
-    t1.rgba.a  # 0.5019607843137255
-    t2.rgba.a  # 0.5
+```
+t1.rgba.a  # 0.5019607843137255
+t2.rgba.a  # 0.5
+```
 
 This is because the alpha value 0x80 being converted to its float equivalent like
 
-    0x80 / 0xff  # 0.5019607843137255
+```
+0x80 / 0xff  # 0.5019607843137255
+```
 
 
 
@@ -423,7 +465,9 @@ Represents colors without alpha value.
 
 Color value is stored internally using RGB color scheme.
 
-    class Color(red: float, green: float, blue: float)
+```
+class Color(red: float, green: float, blue: float)
+```
 
 Arguments:
 
@@ -441,9 +485,7 @@ All arguments must have value between 0.0 and 1.0, inclusive of the limits.
 
 ### Methods
 
-```
-Color.from_int(value: int)
-```
+#### `Color.from_int(value: int)`
 
 Create a `Color` object using the RGB integer value of the color.
 
@@ -453,9 +495,7 @@ Arguments:
 
 Returns: `Color` object whose RGB value is the given integer.
 
-```
-Color.from_name(name: str)
-```
+#### `Color.from_name(name: str)`
 
 Create a `Color` object using the color's name.
 
@@ -465,13 +505,11 @@ Case of the color name doesn't matter.
 
 Arguments:
 
- - name: Name of the color
+ - `name`: Name of the color
 
 Returns: `Color` object for color corresponding to given color name.
 
-```
-Color.from_rgb(r: float, g: float, b: float)
-```
+#### `Color.from_rgb(r: float, g: float, b: float)`
 
 Create a `Color` object from RGB values.
 
@@ -486,9 +524,7 @@ Arguments:
 Returns: `Color` object of given RGB value.
 
 
-```
-Color.from_hsl(h: float, s: float, l: float)
-```
+#### `Color.from_hsl(h: float, s: float, l: float)`
 
 Create a `Color` object from HSL values.
 
@@ -501,9 +537,7 @@ Arguments:
 Returns: `Color` object of given HSL value.
 
 
-```
-Color.from_hsv(h: float, s: float, v: float)
-```
+#### `Color.from_hsv(h: float, s: float, v: float)`
 
 Create a `Color` object from HSV values.
 
@@ -516,11 +550,9 @@ Arguments:
 Returns: `Color` object of given HSV value.
 
 
-```
-Color.copy()
-```
+#### `Color.copy()`
 
-Duplicate the Color object.
+Duplicate the `Color` object.
 
 Returns: A separate copy of the `Color` object.
 
@@ -530,7 +562,9 @@ Represents colors with alpha value.
 
 Color value is stored internally using RGBA color scheme.
 
-    class AlphaColor(red: float, green: float, blue: float, alpha: float)
+```
+class AlphaColor(red: float, green: float, blue: float, alpha: float)
+```
 
 Arguments:
 
@@ -549,21 +583,17 @@ All arguments must have value between 0.0 and 1.0, inclusive of the limits.
 
 ### Methods
 
-```
-AlphaColor.from_int(value: int)
-```
+#### `AlphaColor.from_int(value: int)`
 
 Create an `AlphaColor` object using the RGBA integer value of the color.
 
 Arguments:
 
- - value: RGBA integer value of color
+ - `value`: RGBA integer value of color
 
 Returns: `AlphaColor` object whose RGBA value is the given integer.
 
-```
-AlphaColor.from_name(name: str)
-```
+#### `AlphaColor.from_name(name: str)`
 
 Create an `AlphaColor` object using the color's name.
 
@@ -575,13 +605,11 @@ Case of the color name doesn't matter.
 
 Arguments:
 
- - name: Name of the color
+ - `name`: Name of the color
 
 Returns: `AlphaColor` object for color corresponding to given color name with its alpha value set to zero.
 
-```
-AlphaColor.from_rgba(r: float, g: float, b: float, a: float)
-```
+#### `AlphaColor.from_rgba(r: float, g: float, b: float, a: float)`
 
 Create an `AlphaColor` object from RGBA values.
 
@@ -597,9 +625,7 @@ Arguments:
 Returns: `AlphaColor` object of given RGBA value.
 
 
-```
-AlphaColor.from_hsla(h: float, s: float, l: float, a: float)
-```
+#### `AlphaColor.from_hsla(h: float, s: float, l: float, a: float)`
 
 Create an `AlphaColor` object from HSLA values.
 
@@ -613,9 +639,7 @@ Arguments:
 Returns: `AlphaColor` object of given HSLA value.
 
 
-```
-AlphaColor.from_hsva(h: float, s: float, v: float, a: float)
-```
+#### `AlphaColor.from_hsva(h: float, s: float, v: float, a: float)`
 
 Create an `AlphaColor` object from HSVA values.
 
@@ -629,11 +653,9 @@ Arguments:
 Returns: `AlphaColor` object of given HSVA value.
 
 
-```
-AlphaColor.copy()
-```
+#### `AlphaColor.copy()`
 
-Duplicate the AlphaColor object.
+Duplicate the `AlphaColor` object.
 
 Returns: A separate copy of the `AlphaColor` object.
 
@@ -641,7 +663,9 @@ Returns: A separate copy of the `AlphaColor` object.
 ## ColorViewRGB objects
 RGB color view for `Color` objects.
 
-    class ColorViewRGB(color: Color)
+```
+class ColorViewRGB(color: Color)
+```
 
 Arguments:
 
@@ -657,9 +681,7 @@ Arguments:
 
 ### Methods
 
-```
-ColorViewRGB.replace(r: float = None, g: float = None, b: float = None) -> Color
-```
+#### `ColorViewRGB.replace(r: float = None, g: float = None, b: float = None) -> Color`
 
 Creates a new `Color` object by replacing RGB components of the `Color` object associated with the RGB color view.
 
@@ -674,7 +696,9 @@ Returns: A new `Color` object made by replacing RGB components of the `Color` ob
 ## ColorViewHSL objects
 HSL color view for `Color` objects.
 
-    class ColorViewHSL(color: Color)
+```
+class ColorViewHSL(color: Color)
+```
 
 Arguments:
 
@@ -690,9 +714,7 @@ Arguments:
 
 ### Methods
 
-```
-ColorViewHSL.replace(h: float = None, s: float = None, l: float = None) -> Color
-```
+#### `ColorViewHSL.replace(h: float = None, s: float = None, l: float = None) -> Color`
 
 Creates a new `Color` object by replacing HSL components of the `Color` object associated with the HSL color view.
 
@@ -707,7 +729,9 @@ Returns: A new `Color` object made by replacing HSL components of the `Color` ob
 ## ColorViewHSV objects
 HSV color view for `Color` objects.
 
-    class ColorViewHSV(color: Color)
+```
+class ColorViewHSV(color: Color)
+```
 
 Arguments:
 
@@ -723,9 +747,7 @@ Arguments:
 
 ### Methods
 
-```
-ColorViewHSV.replace(h: float = None, s: float = None, v: float = None) -> Color
-```
+#### `ColorViewHSV.replace(h: float = None, s: float = None, v: float = None) -> Color`
 
 Creates a new `Color` object by replacing HSV components of the `Color` object associated with the HSV color view.
 
@@ -740,7 +762,9 @@ Returns: A new `Color` object made by replacing HSV components of the `Color` ob
 ## ColorViewRGBA objects
 RGBA color view for `AlphaColor` objects.
 
-    class ColorViewRGBA(color: AlphaColor)
+```
+class ColorViewRGBA(color: AlphaColor)
+```
 
 Arguments:
 
@@ -757,9 +781,7 @@ Arguments:
 
 ### Methods
 
-```
-ColorViewRGBA.replace(r: float = None, g: float = None, b: float = None, a: float = None) -> AlphaColor
-```
+#### `ColorViewRGBA.replace(r: float = None, g: float = None, b: float = None, a: float = None) -> AlphaColor`
 
 Creates a new `AlphaColor` object by replacing RGBA components of the `AlphaColor` object associated with the RGBA color view.
 
@@ -775,7 +797,9 @@ Returns: A new `AlphaColor` object made by replacing RGBA components of the `Alp
 ## ColorViewHSLA objects
 HSLA color view for `AlphaColor` objects.
 
-    class ColorViewHSLA(color: AlphaColor)
+```
+class ColorViewHSLA(color: AlphaColor)
+```
 
 Arguments:
 
@@ -792,9 +816,7 @@ Arguments:
 
 ### Methods
 
-```
-ColorViewHSLA.replace(h: float = None, s: float = None, l: float = None, a: float = None) -> AlphaColor
-```
+#### `ColorViewHSLA.replace(h: float = None, s: float = None, l: float = None, a: float = None) -> AlphaColor`
 
 Creates a new `AlphaColor` object by replacing HSLA components of the `AlphaColor` object associated with the HSLA color view.
 
@@ -810,7 +832,9 @@ Returns: A new `AlphaColor` object made by replacing HSLA components of the `Alp
 ## ColorViewHSVA objects
 HSVA color view for `AlphaColor` objects.
 
-    class ColorViewHSVA(color: AlphaColor)
+```
+class ColorViewHSVA(color: AlphaColor)
+```
 
 Arguments:
 
@@ -827,9 +851,7 @@ Arguments:
 
 ### Methods
 
-```
-ColorViewHSVA.replace(h: float = None, s: float = None, v: float = None, a: float = None) -> AlphaColor
-```
+#### `ColorViewHSVA.replace(h: float = None, s: float = None, v: float = None, a: float = None) -> AlphaColor`
 
 Creates a new `AlphaColor` object by replacing HSVA components of the `AlphaColor` object associated with the HSVA color view.
 
@@ -842,11 +864,10 @@ Arguments:
 
 Returns: A new `AlphaColor` object made by replacing HSVA components of the `AlphaColor` object with given values.
 
-# scale()
 
-```
-scale(val: float, multiplier: int) -> int:
-```
+# Scaling float values to integers
+
+## `scale(val: float, multiplier: int) -> int`
 
 Scales a value by a factor.
 

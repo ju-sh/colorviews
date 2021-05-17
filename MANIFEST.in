@@ -10,6 +10,7 @@ include .pylintrc
 include .flake8
 include mypy.ini
 include .coveragerc
+include whitelist.py
 
 exclude .bumpversion.cfg
 
