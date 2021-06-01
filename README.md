@@ -1,8 +1,33 @@
+
 # colorviews
 
 A module to handle colors.
 
+Inter-convert colors with and without alpha between RGB(A), HSL(A) and HSV(A) color schemes.
+
 ---
+
+ - Installation
+ - [Quickstart](#quickstart)
+ - Color objects
+   + Creating color objects
+   + Accessing color component values
+ - AlphaColor objects
+   + Creating color objects
+   + Accessing color component values
+ - Scaling color component values to int equivalent
+ - Comparing colors
+ - Duplicating or copying color objects
+ - Caveats
+
+# Installation
+Python>=3.6 is needed for colorviews.
+
+Can be installed with pip from PyPI using
+
+```
+pip install tzview
+```
 
 # Quickstart
 Colors may be represented using `Color` (for colors without alpha value) and `AlphaColor` (for colors with alpha value) objects.
@@ -20,35 +45,17 @@ All color component values are handled as float values between and including 0.0
 
 These float values may be converted to their integer equivalent using `scale()`function of the colorviews package.
 
-## Creating Color objects
-`Color` objects can be created in one of the following ways.
+## Color objects
+`Color` objects can be store colors without alpha value.
 
-### From RGB values
-With constructor or `Color.from_rgb(r: float, g: float, b: float)`.
-
-    from colorviews import Color
-    color = Color(0.2, 0.4, 0.8)  # <Color(0x3366cc)>
-    color = Color.from_rgb(0.2, 0.4, 0.8)  # <Color(0x3366cc)>
-
-### From color RGB integer value
+### Creating Color objects
+#### From color RGB integer value
 With `Color.from_int(value: int)`.
 
     from colorviews import Color
     color = Color.from_int(0xabcdef)  # <Color(<Color(0xabcdef)>)>
 
-### From HSL values
-With `Color.from_hsl(h: float, s: float, l: float)`.
-
-    from colorviews import Color
-    color = Color.from_hsl(0.5, 1.0, 0.52)  # <Color(0xaffff)>
-
-### From HSV values
-With `Color.from_hsv(h: float, s: float, v: float)`.
-
-    from colorviews import Color
-    color = Color.from_hsv(0.5, 1.0, 0.52)  # <Color(0x8585)>
-
-### From color name
+#### From color name
 With `Color.from_name()`.
 
 [CSS3 extended color keywords](https://www.w3.org/wiki/CSS3/Color/Extended_color_keywords) are recognized.
@@ -58,15 +65,34 @@ Case of the color name doesn't matter.
     from colorviews import Color
     color = Color.from_name("darkgrey")  # <Color(0xa9a9a9)>
 
-## Accessing color component values
-### Hex value of color
+#### From RGB values
+With constructor or `Color.from_rgb(r: float, g: float, b: float)`.
+
+    from colorviews import Color
+    color = Color(0.2, 0.4, 0.8)  # <Color(0x3366cc)>
+    color = Color.from_rgb(0.2, 0.4, 0.8)  # <Color(0x3366cc)>
+
+#### From HSL values
+With `Color.from_hsl(h: float, s: float, l: float)`.
+
+    from colorviews import Color
+    color = Color.from_hsl(0.5, 1.0, 0.52)  # <Color(0xaffff)>
+
+#### From HSV values
+With `Color.from_hsv(h: float, s: float, v: float)`.
+
+    from colorviews import Color
+    color = Color.from_hsv(0.5, 1.0, 0.52)  # <Color(0x8585)>
+
+### Accessing color component values
+#### Hex value of color
 
     from colorviews import Color
     color = Color.from_int(0xabcdef)  # <Color(0xabcdef)>
     hex(color)  # '0xabcdef'
     str(color)  # 'abcdef'
 
-### RGB color view
+#### RGB color view
 RGB color view has the following attributes which may be read or written:
 
  - `r`: red component of RGB color value.
@@ -100,7 +126,7 @@ color.rgb.vals = (0.25, 0.50, 0.75)
 color  # <Color(0x4080bf)>
 ```
 
-### HSL color view
+#### HSL color view
 HSL color view has the following attributes which may be read or written:
 
  - `h`: hue component of HSL color value.
@@ -133,7 +159,7 @@ color.hsl.vals = (0.25, 0.50, 0.75)
 color  # <Color(0xbfdf9f)>
 ```
 
-### HSV color view
+#### HSV color view
 HSV color view has the following attributes which may be read or written:
 
  - `h`: hue component of HSV color value.
@@ -167,11 +193,20 @@ color.hsv.vals = (0.25, 0.50, 0.75)
 color  # <Color(0x8fbf60)>
 ```
 
-## Creating AlphaColor objects
+## AlphaColor objects
 
-`AlphaColor` objects can also be created in more than one way.
+`AlphaColor` objects can be store colors with alpha value.
 
-###  From RGBA values
+### Creating AlphaColor objects
+#### From color name
+With `AlphaColor.from_name()`.
+
+
+```
+from colorviews import AlphaColor
+color = AlphaColor.from_name("darkgrey")  # <AlphaColor(0xa9a9a900)>
+```
+####  From RGBA values
 With the constructor or `AlphaColor.from_rgba(r: float, g: float, b: float, a: float)`.
 
 ```
@@ -179,8 +214,8 @@ from colorviews import AlphaColor
 color = AlphaColor(0.2, 0.4, 0.8, 0.5)  # <AlphaColor(0x3366cc80)>
 color = AlphaColor.from_rgba(0.2, 0.4, 0.8, 0.75)  # <AlphaColor(0x3366ccbf)>
 ```
-    
-### From color RGBA integer value
+
+#### From color RGBA integer value
 With `AlphaColor.from_int()`.
 
 ```
@@ -188,30 +223,20 @@ from colorviews import AlphaColor
 color = AlphaColor.from_int(0xabcdef80)  # <AlphaColor(0xabcdef80)>
 ```
 
-### From HSLA values
+#### From HSLA values
 With `AlphaColor.from_hsla(h: float, s: float, l: float, a: float)`.
 
 ```
 from colorviews import AlphaColor
 color = AlphaColor.from_hsla(0.5, 1.0, 0.52, 0.8)  # <AlphaColor(0xaffffcc)>
 ```
-    
-### From HSVA values
+
+#### From HSVA values
 With `Color.from_hsva(h: float, s: float, v: float, a: float)`.
 
 ```
 from colorviews import AlphaColor
 color = AlphaColor.from_hsva(0.5, 1.0, 0.52, 0.8)  # <AlphaColor(0x8585cc)>
-```
-    
-### From color name
-With `AlphaColor.from_name()`.
-
-Just like `Color.from_name()` but with an alpha value which is set to zero.
-    
-```
-from colorviews import AlphaColor
-color = AlphaColor.from_name("darkgrey")  # <AlphaColor(0xa9a9a900)>
 ```
 
 
@@ -344,7 +369,7 @@ color  # <AlphaColor(0x8fbf6033)>
 ```
 
 
-# Converting values to int equivalent
+# Scaling color component values to int equivalent
 `scale()` function may be used to convert the color component values from float values to integer equivalent.
 
 It multiplies a value with another scaling factor and returns this product value rounded off to the closest integer.
@@ -393,7 +418,7 @@ fainter_red = AlphaColor.from_name("red", 0.2)  # <AlphaColor(0xff000033)>
 faint_red < fainter_red  # False
 faint_red > fainter_red  # True
 ```
-    
+
 But comparison between a `Color` object and a `AlphaColor` object is not supported. Even when their RGB values match.
 
 ```
@@ -453,7 +478,7 @@ This is because the alpha value 0x80 being converted to its float equivalent lik
 
 
 
-
+---
 
 
 
@@ -593,11 +618,11 @@ Arguments:
 
 Returns: `AlphaColor` object whose RGBA value is the given integer.
 
-#### `AlphaColor.from_name(name: str)`
+#### `AlphaColor.from_name(name: str, a: float = 0.0)`
 
-Create an `AlphaColor` object using the color's name.
+Create an `AlphaColor` object with RGB values of the named color and given alpha value.
 
-Alpha value of returned `AlphaColor` object will be 0 (ie, fully transparent color).
+Alpha value is 0.0 by default.
 
 [CSS3 extended color keywords](https://www.w3.org/wiki/CSS3/Color/Extended_color_keywords) are recognized.
 
@@ -606,8 +631,9 @@ Case of the color name doesn't matter.
 Arguments:
 
  - `name`: Name of the color
+ - `a`: Alpha value of the color
 
-Returns: `AlphaColor` object for color corresponding to given color name with its alpha value set to zero.
+Returns: `AlphaColor` object for color corresponding to given color name and alpha value.
 
 #### `AlphaColor.from_rgba(r: float, g: float, b: float, a: float)`
 

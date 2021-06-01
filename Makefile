@@ -4,7 +4,7 @@ first-upload: dist/
 update-upload: dist/
 	python3 -m twine upload --skip-existing dist/* 
 
-.PHONY: build purge_cache clean cov test mypy pylint flake8 check-manifest bumpversion
+.PHONY: build purge-cache clean cov test mypy pylint flake8 check-manifest vulture vulture-make-whitelist change-version
 
 build:
 	rm -rf build/ dist/ src/colorviews.egg-info/
@@ -35,9 +35,12 @@ check-manifest:
 	check-manifest .
 
 vulture:
-	vulture . whitelist.py
+	vulture src/ whitelist.py
+
+vulture-make-whitelist:
+	vulture src/ --make-whitelist > whitelist.py
 
 change-version:
-	# Assumption: Current version = 0.1-alpha0
-	sed -i 's/version="0.1-alpha0"/version="0.1-alpha0"/' setup.py
-	sed -i 's/__version__ = "0.1-alpha0"/__version__ = "0.1-alpha0"/' src/colorviews/__init__.py
+	# Assumption: Current version = 0.1-alpha1
+	sed -i 's/version="0.1-alpha0"/version="0.1-alpha1"/' setup.py
+	sed -i 's/__version__ = "0.1-alpha0"/__version__ = "0.1-alpha1"/' src/colorviews/__init__.py

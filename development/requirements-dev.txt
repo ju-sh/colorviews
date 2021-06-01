@@ -1,0 +1,7 @@
+tox
+flake8
+pylint
+mypy
+vulture
+pytest
+coverage

@@ -5,7 +5,7 @@ long_description = pathlib.Path("README.md").read_text()
 
 setuptools.setup(
     name="colorviews",
-    version="0.1-alpha0",
+    version="0.1-alpha1",
     author="Julin S",
     author_email="",
     description="A simple module to handle colors",
