@@ -1,4 +1,3 @@
-
 # colorviews
 
 A module to handle colors.
@@ -26,11 +25,14 @@ Python>=3.6 is needed for colorviews.
 Can be installed with pip from PyPI using
 
 ```
-pip install tzview
+pip install colorviews
 ```
 
 # Quickstart
-Colors may be represented using `Color` (for colors without alpha value) and `AlphaColor` (for colors with alpha value) objects.
+Colors may be represented using:
+
+ - `Color` objects: for colors without alpha value
+ - `AlphaColor` objects: for colors with alpha value
 
 All colors are stored internally using their RGB(A) values and are converted to other color schemes when needed using appropriate ColorView objects.
 
@@ -46,7 +48,7 @@ All color component values are handled as float values between and including 0.0
 These float values may be converted to their integer equivalent using `scale()`function of the colorviews package.
 
 ## Color objects
-`Color` objects can be store colors without alpha value.
+`Color` objects can be used to store colors without alpha value.
 
 ### Creating Color objects
 #### From color RGB integer value
@@ -195,7 +197,7 @@ color  # <Color(0x8fbf60)>
 
 ## AlphaColor objects
 
-`AlphaColor` objects can be store colors with alpha value.
+`AlphaColor` objects can be used to store colors with alpha value.
 
 ### Creating AlphaColor objects
 #### From color name
