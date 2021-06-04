@@ -99,6 +99,18 @@ class Color(BaseColor):
         """HSV colorview as float values"""
         return colorviews.views.ColorViewHSV(self)
 
+    @property
+    def rgb_(self):
+        return colorviews.views.ColorViewRGB_(self)
+
+    @property
+    def hsl_(self):
+        return colorviews.views.ColorViewHSL_(self)
+
+    @property
+    def hsv_(self):
+        return colorviews.views.ColorViewHSV_(self)
+
     @classmethod
     def from_name(cls, name: str) -> 'Color':
         """
@@ -202,6 +214,26 @@ class Color(BaseColor):
         rgb = colorsys.hsv_to_rgb(h, s, v)
         return cls(*rgb)
 
+    @classmethod
+    def from_rgb_(cls, r: int, g: int, b: int) -> "Color":
+        return cls(r / 255, g / 255, b / 255)
+
+    @classmethod
+    def from_hsl_(cls, h: int, s: int, l: int) -> "Color":
+        h = utils.validate_angle(h)
+        s = utils.validate_cent(s)
+        l = utils.validate_cent(l)
+        rgb = colorsys.hls_to_rgb(h / 360, l / 100, s / 100)
+        return cls(*rgb)
+
+    @classmethod
+    def from_hsv_(cls, h: int, s: int, v: int) -> "Color":
+        h = utils.validate_angle(h)
+        s = utils.validate_cent(s)
+        v = utils.validate_cent(v)
+        rgb = colorsys.hsv_to_rgb(h / 360, s / 100, v / 100)
+        return cls(*rgb)
+
     def copy(self) -> "Color":
         """
         Creates a copy of the Color object.
@@ -247,6 +279,18 @@ class AlphaColor(BaseColor):
     def hsva(self):
         """HSVA colorview as float values"""
         return colorviews.views.ColorViewHSVA(self)
+
+    @property
+    def rgba_(self):
+        return colorviews.views.ColorViewRGBA_(self)
+
+    @property
+    def hsla_(self):
+        return colorviews.views.ColorViewHSLA_(self)
+
+    @property
+    def hsva_(self):
+        return colorviews.views.ColorViewHSVA_(self)
 
     @classmethod
     def from_name(cls, name: str, a: float = 0.0) -> "AlphaColor":
@@ -362,6 +406,28 @@ class AlphaColor(BaseColor):
         utils.validate(v)
         utils.validate(a)
         rgba = colorsys.hsv_to_rgb(h, s, v) + (a, )
+        return cls(*rgba)
+
+    @classmethod
+    def from_rgba_(cls, r: int, g: int, b: int, a: int) -> "AlphaColor":
+        return cls(r / 255, g / 255, b / 255, a / 100)
+
+    @classmethod
+    def from_hsla_(cls, h: int, s: int, l: int, a: int) -> "AlphaColor":
+        h = utils.validate_angle(h)
+        s = utils.validate_cent(s)
+        l = utils.validate_cent(l)
+        a = utils.validate_cent(a)
+        rgba = colorsys.hls_to_rgb(h / 360, l / 100, s / 100) + (a / 100, )
+        return cls(*rgba)
+
+    @classmethod
+    def from_hsva_(cls, h: float, s: float, v: float, a: float) -> "AlphaColor":
+        h = utils.validate_angle(h)
+        s = utils.validate_cent(s)
+        v = utils.validate_cent(v)
+        a = utils.validate_cent(a)
+        rgba = colorsys.hsv_to_rgb(h / 360, s / 100, v / 100) + (a / 100, )
         return cls(*rgba)
 
     def copy(self) -> "AlphaColor":

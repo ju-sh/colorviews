@@ -15,6 +15,25 @@ def validate(val: float) -> None:
     """
     if val < 0 or val > 1:
         raise ValueError(f"{val}: Expected value in [0.0, 1.0]")
+    #return float(val)
+
+
+def validate_uint(val: float) -> int:
+    if val < 0 or val > 255:
+        raise ValueError(f"{val}: Expected value in [0, 255]")
+    return int(val)
+
+
+def validate_cent(val: float) -> int:
+    if val < 0 or val > 100:
+        raise ValueError(f"{val}: Expected value in [0, 100]")
+    return int(val)
+
+
+def validate_angle(val: float) -> int:
+    if not isinstance(val, int):
+        raise ValueError(f"{val}: Expected an integer")
+    return val % 360
 
 
 def scale(val: float, factor: int) -> int:
