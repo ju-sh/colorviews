@@ -6,12 +6,18 @@ For Color:
  - ColorViewRGB
  - ColorViewHSL
  - ColorViewHSV
+ - ColorViewRGB_
+ - ColorViewHSL_
+ - ColorViewHSV_
 
 For AlphaColor:
 
  - ColorViewRGBA
  - ColorViewHSLA
  - ColorViewHSVA
+ - ColorViewRGBA_
+ - ColorViewHSLA_
+ - ColorViewHSVA_
 """
 
 import colorsys
@@ -35,7 +41,7 @@ class BaseColorView:
 
 class BaseAlphaColorView(BaseColorView):
     """
-    Base class of all ColorView classes with alpha value.
+    Base class of all float color view classes having alpha value.
     """
     __slots__: List[str] = []
 
@@ -53,11 +59,14 @@ class BaseAlphaColorView(BaseColorView):
 
 
 class BaseAlphaColorView_(BaseColorView):
+    """
+    Base class of all rounded int color view classes having alpha value.
+    """
     __slots__: List[str] = []
 
     @property
     def a(self) -> float:
-        """Alpha component as a float value"""
+        """Alpha component as an int value"""
         self.color = cast("colors.AlphaColor", self.color)
         return utils.scale(self.color._a, 100)
 
@@ -107,21 +116,21 @@ class BaseColorViewRGB_(BaseColorView):
 
 class ColorViewRGB_(BaseColorViewRGB_):
     """
-    RGB view of Color objects in float values
+    Rounded int RGB view of Color objects.
     """
     __slots__: List[str] = []
 
     @property
-    def vals(self) -> Sequence[float]:
+    def vals(self) -> Sequence[int]:
         """
-        Tuple of RGB values as floats.
+        Tuple of RGB values as ints.
         """
         return tuple(self)
 
     @vals.setter
-    def vals(self, values: Sequence[float]):
+    def vals(self, values: Sequence[int]):
         if len(values) != 3:
-            raise ValueError("Needs exactly 3 floats")
+            raise ValueError("Needs exactly 3 ints")
         r = utils.validate_uint(values[0])
         g = utils.validate_uint(values[1])
         b = utils.validate_uint(values[2])
@@ -142,6 +151,9 @@ class ColorViewRGB_(BaseColorViewRGB_):
 
 
 class ColorViewRGBA_(BaseColorViewRGB_, BaseAlphaColorView_):
+    """
+    Rounded int RGBA view of AlphaColor objects.
+    """
     __slots__: List[str] = []
 
     @property
@@ -311,10 +323,14 @@ class ColorViewRGBA(BaseColorViewRGB, BaseAlphaColorView):
         return self.color.from_rgba(r, g, b, a)
 
 class BaseColorViewHSL_(BaseColorView):
+    """
+    Base class of ColorViewHSL_ and ColorViewHSLA_ classes.
+    """
     __slots__: List[str] = []
 
     @property
     def h(self):
+        """Hue component as an int value"""
         rgb = (self.color._r, self.color._g, self.color._b)
         hls = colorsys.rgb_to_hls(*rgb)
         return utils.scale(hls[0], 360)
@@ -329,6 +345,7 @@ class BaseColorViewHSL_(BaseColorView):
 
     @property
     def s(self):
+        """Saturation component as an int value"""
         rgb = (self.color._r, self.color._g, self.color._b)
         hls = colorsys.rgb_to_hls(*rgb)
         return utils.scale(hls[2], 100)
@@ -343,6 +360,7 @@ class BaseColorViewHSL_(BaseColorView):
 
     @property
     def l(self):
+        """Lightness component as an int value"""
         rgb = (self.color._r, self.color._g, self.color._b)
         hls = colorsys.rgb_to_hls(*rgb)
         return utils.scale(hls[1], 100)
@@ -357,6 +375,9 @@ class BaseColorViewHSL_(BaseColorView):
 
 
 class ColorViewHSL_(BaseColorViewHSL_):
+    """
+    Rounded int HSL view of Color objects.
+    """
     __slots__: List[str] = []
 
     def __iter__(self):
@@ -368,6 +389,9 @@ class ColorViewHSL_(BaseColorViewHSL_):
 
     @property
     def vals(self) -> Sequence[int]:
+        """
+        Tuple of HSL values as ints.
+        """
         return tuple(self)
 
     @vals.setter
@@ -378,10 +402,24 @@ class ColorViewHSL_(BaseColorViewHSL_):
         s = utils.validate_cent(values[1])
         l = utils.validate_cent(values[2])
         rgb = colorsys.hls_to_rgb(h / 360, l / 100, s / 100)
-        #self.color = cast("colors.Color", self.color)
+        self.color = cast("colors.Color", self.color)
         self.color.rgb.vals = rgb
 
     def replace(self, h=None, s=None, l=None) -> "colors.Color":
+        """
+        Create a new Color object by replacing the HSL values of the Color
+        object associated with the colorview.
+
+        Arguments:
+          h: Hue component of HSL value as an int. Resultant value will be
+             h modulo 360.
+          s: Saturation component of HSL value as an int in the
+             range [0, 100].
+          l: Lightness component of HSL value as an int in the range [0, 100].
+
+        Returns:
+          Color object with modified HSL values.
+        """
         hsl = list(self)
         if h is None:
             h = hsl[0]
@@ -394,6 +432,9 @@ class ColorViewHSL_(BaseColorViewHSL_):
 
 
 class ColorViewHSLA_(BaseColorViewHSL_, BaseAlphaColorView_):
+    """
+    Rounded int HSLA view of AlphaColor objects.
+    """
     __slots__: List[str] = []
 
     def __iter__(self):
@@ -401,6 +442,9 @@ class ColorViewHSLA_(BaseColorViewHSL_, BaseAlphaColorView_):
 
     @property
     def vals(self) -> Sequence[int]:
+        """
+        Tuple of HSLA values as ints.
+        """
         return tuple(self)
 
     @vals.setter
@@ -416,6 +460,22 @@ class ColorViewHSLA_(BaseColorViewHSL_, BaseAlphaColorView_):
         self.color.rgba.vals = rgb + (a / 100, )
 
     def replace(self, h=None, s=None, l=None, a=None) -> "colors.AlphaColor":
+        """
+        Create a new AlphaColor object by replacing the HSLA values of the
+        AlphaColor object associated with the colorview.
+
+        Arguments:
+          h: Hue component of HSLA value as a float. Resultant value will be
+             h modulo 360
+          s: Saturation component of HSLA value as a float in the
+             range [0, 100].
+          l: Lightness component of HSLA value as a float in the
+             range [0, 100].
+          a: Alpha component of HSLA value as a float in the range [0, 100].
+
+        Returns:
+          AlphaColor object with modified HSLA values.
+        """
         hsla = list(self)
         if h is None:
             h = hsla[0]
@@ -444,7 +504,7 @@ class BaseColorViewHSL(BaseColorView):
 
     @h.setter
     def h(self, val: float):
-        utils.validate(val)
+        val = utils.validate_float_angle(val)
         rgb = (self.color._r, self.color._g, self.color._b)
         hls = colorsys.rgb_to_hls(*rgb)
         rgb = colorsys.hls_to_rgb(val, hls[1], hls[2])
@@ -515,7 +575,8 @@ class ColorViewHSL(BaseColorViewHSL):
         object associated with the colorview.
 
         Arguments:
-          h: Hue component of HSL value as a float in the range [0, 0.1].
+          h: Hue component of HSL value as a float. Resultant value will be
+             h modulo 1.0
           s: Saturation component of HSL value as a float in the
              range [0, 0.1].
           l: Lightness component of HSL value as a float in the range [0, 0.1].
@@ -568,7 +629,8 @@ class ColorViewHSLA(BaseColorViewHSL, BaseAlphaColorView):
         AlphaColor object associated with the colorview.
 
         Arguments:
-          h: Hue component of HSLA value as a float in the range [0, 0.1].
+          h: Hue component of HSLA value as a float. Resultant value will be
+             h modulo 1.0
           s: Saturation component of HSLA value as a float in the
              range [0, 0.1].
           l: Lightness component of HSLA value as a float in the
@@ -592,10 +654,14 @@ class ColorViewHSLA(BaseColorViewHSL, BaseAlphaColorView):
 
 
 class BaseColorViewHSV_(BaseColorView):
+    """
+    Base class of ColorViewHSV_ and ColorViewHSVA_ classes.
+    """
     __slots__: List[str] = []
 
     @property
     def h(self):
+        """Hue component as an int value"""
         rgb = (self.color._r, self.color._g, self.color._b)
         hsv = colorsys.rgb_to_hsv(*rgb)
         return utils.scale(hsv[0], 360)
@@ -610,6 +676,7 @@ class BaseColorViewHSV_(BaseColorView):
 
     @property
     def s(self):
+        """Saturation component as an int value"""
         rgb = (self.color._r, self.color._g, self.color._b)
         hsv = colorsys.rgb_to_hsv(*rgb)
         return utils.scale(hsv[1], 100)
@@ -624,6 +691,7 @@ class BaseColorViewHSV_(BaseColorView):
 
     @property
     def v(self):
+        """Value component as an int value"""
         rgb = (self.color._r, self.color._g, self.color._b)
         hsv = colorsys.rgb_to_hsv(*rgb)
         return utils.scale(hsv[2], 100)
@@ -638,6 +706,9 @@ class BaseColorViewHSV_(BaseColorView):
 
 
 class ColorViewHSV_(BaseColorViewHSV_):
+    """
+    Rounded int HSV view of Color objects.
+    """
     __slots__: List[str] = []
 
     def __iter__(self):
@@ -659,7 +730,7 @@ class ColorViewHSV_(BaseColorViewHSV_):
         s = utils.validate_cent(values[1])
         v = utils.validate_cent(values[2])
         rgb = colorsys.hsv_to_rgb(h / 360, s / 100, v / 100)
-        #self.color = cast("colors.Color", self.color)
+        self.color = cast("colors.Color", self.color)
         self.color.rgb.vals = rgb
 
     def replace(self, h=None, s=None, v=None) -> "colors.Color":
@@ -674,6 +745,9 @@ class ColorViewHSV_(BaseColorViewHSV_):
         return self.color.from_hsv_(h, s, v)
 
 class ColorViewHSVA_(BaseColorViewHSV_, BaseAlphaColorView_):
+    """
+    Rounded integer HSVA view of AlphaColor objects.
+    """
     __slots__: List[str] = []
 
     def __iter__(self):
@@ -723,7 +797,7 @@ class BaseColorViewHSV(BaseColorView):
 
     @h.setter
     def h(self, val: float):
-        utils.validate(val)
+        val = utils.validate_float_angle(val)
         rgb = (self.color._r, self.color._g, self.color._b)
         hsv = colorsys.rgb_to_hsv(*rgb)
         rgb = colorsys.hsv_to_rgb(val, hsv[1], hsv[2])

@@ -30,6 +30,9 @@ def validate_cent(val: float) -> int:
     return int(val)
 
 
+def validate_float_angle(val: float) -> float:
+    return val % 1
+
 def validate_angle(val: float) -> int:
     if not isinstance(val, int):
         raise ValueError(f"{val}: Expected an integer")

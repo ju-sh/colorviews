@@ -33,6 +33,24 @@ class TestSetAttr:
         setattr(color.hsv, attr, val)
         assert round(getattr(color.hsv, attr), 4) == val
 
+    @pytest.mark.parametrize("val, expected", [
+        (1.2, 0.2),
+        (8.4, 0.4),
+    ])
+    def test_valid_round_h(self, val, expected):
+        color = Color.from_hsv(0.45, 0.15, 0.89)
+        color.hsv_.h = val
+        assert color.hsv.h == expected
+
+    @pytest.mark.parametrize("val, expected", [
+        (1.35, 0.35),
+        (-1.2, 0.8),
+    ])
+    def test_valid_round_h(self, val, expected):
+        color = Color.from_hsv(0.75, 0.47, 0.29)
+        color.hsv.h = val
+        assert round(color.hsv.h, 4) == expected  # float precision problem
+
     @pytest.mark.parametrize("attr", [
         "r", "a",
     ])

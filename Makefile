@@ -42,5 +42,5 @@ vulture-make-whitelist:
 
 change-version:
 	# Assumption: Current version = 0.1-alpha1
-	sed -i 's/version="0.1-alpha0"/version="0.1-alpha1"/' setup.py
-	sed -i 's/__version__ = "0.1-alpha0"/__version__ = "0.1-alpha1"/' src/colorviews/__init__.py
+	sed -i 's/version="0.1-alpha1"/version="0.1-alpha2"/' setup.py
+	sed -i 's/__version__ = "0.1-alpha1"/__version__ = "0.1-alpha2"/' src/colorviews/__init__.py

@@ -33,6 +33,15 @@ class TestSetAttr:
         setattr(color.hsl_, attr, val)
         assert getattr(color.hsl_, attr) == val
 
+    @pytest.mark.parametrize("val, expected", [
+        (570, 210),
+        (-270, 90),
+    ])
+    def test_valid_round_h(self, val, expected):
+        color = Color.from_hsl_(162, 15, 89)
+        color.hsl_.h = val
+        assert color.hsl_.h == expected
+
     @pytest.mark.parametrize("attr", [
         "r", "a",
     ])

@@ -447,7 +447,7 @@ id(alphacolor_copy) != id(alphacolor)  # True
 # Caveats
 The color component values are stored internally as RGB(A) float values in the [0.0, 1.0] range.
 
-Depending on the way in which the color objects are created, there may be a slight difference in this RGB(A) values.
+Depending on the way in which the color objects are created, there may be a slight difference in these RGB(A) values.
 
 For example, consider two AlphaColor objects where one as is made using an integer value and the other is made using RGBA values as in
 

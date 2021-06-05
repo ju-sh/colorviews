@@ -4,7 +4,7 @@ Dictionary of CSS3 extended color keyword names.
 Source: https://www.w3.org/wiki/CSS3/Color/Extended_color_keywords
 """
 
-COLORS = {
+COLOR_NAMES = {
     "aliceblue": 0xF0F8FF,
     "antiquewhite": 0xFAEBD7,
     "aqua": 0x00FFFF,

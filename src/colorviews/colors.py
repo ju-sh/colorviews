@@ -125,7 +125,7 @@ class Color(BaseColor):
           Color object with value corresponding to the given color name.
         """
         name = name.lower()
-        return cls.from_int(colorviews.names.COLORS[name])
+        return cls.from_int(colorviews.names.COLOR_NAMES[name])
 
     @classmethod
     def from_int(cls, value: int):
@@ -216,10 +216,41 @@ class Color(BaseColor):
 
     @classmethod
     def from_rgb_(cls, r: int, g: int, b: int) -> "Color":
+        """
+        Creates a Color object from the given RGB unsigned int values.
+
+        Arguments:
+          r: Red component of RGB value as an int in the range [0, 255]
+          g: Green component of RGB value as an int in the range [0, 255]
+          b: Blue component of RGB value as an int in the range [0, 255]
+
+        Returns:
+          Color object with given RGB values.
+
+        Raises:
+          ValueError: If value is outside the valid range.
+        """
         return cls(r / 255, g / 255, b / 255)
 
     @classmethod
     def from_hsl_(cls, h: int, s: int, l: int) -> "Color":
+        """
+        Creates a Color object from the given HSL int values.
+
+        Arguments:
+          h: Hue component of HSL value as an int. Modulo 360 value is stored
+             for values >= 360
+          s: Saturation component of HSL value as an int in the
+             range [0, 100]
+          l: Lightness component of HSL value as an int in the
+             range [0, 100]
+
+        Returns:
+          Color object with given HSL values.
+
+        Raises:
+          ValueError: If any argument is outside valid range.
+        """
         h = utils.validate_angle(h)
         s = utils.validate_cent(s)
         l = utils.validate_cent(l)
@@ -228,6 +259,23 @@ class Color(BaseColor):
 
     @classmethod
     def from_hsv_(cls, h: int, s: int, v: int) -> "Color":
+        """
+        Creates a Color object from the given HSV int values.
+
+        Arguments:
+          h: Hue component of HSL value as an int. Modulo 360 value is stored
+             for values >= 360
+          s: Saturation component of HSL value as an int in the
+             range [0, 100]
+          l: Lightness component of HSL value as an int in the
+             range [0, 100]
+
+        Returns:
+          Color object with given HSV values.
+
+        Raises:
+          ValueError: If any argument is outside valid range.
+        """
         h = utils.validate_angle(h)
         s = utils.validate_cent(s)
         v = utils.validate_cent(v)
@@ -311,7 +359,7 @@ class AlphaColor(BaseColor):
         utils.validate(a)
         a_int = int(a * 0xff)
         name = name.lower()
-        rgb_intval = colorviews.names.COLORS[name]
+        rgb_intval = colorviews.names.COLOR_NAMES[name]
         rgba_intval = (rgb_intval << 8) | a_int
         return cls.from_int(rgba_intval)
 

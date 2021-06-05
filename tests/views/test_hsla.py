@@ -35,6 +35,24 @@ class TestSetAttr:
         setattr(color.hsla, attr, val)
         assert round(getattr(color.hsla, attr), 4) == val
 
+    @pytest.mark.parametrize("val, expected", [
+        (1.2, 0.2),
+        (8.4, 0.4),
+    ])
+    def test_valid_round_h(self, val, expected):
+        color = AlphaColor.from_hsla(0.45, 0.15, 0.89, 0.79)
+        color.hsla.h = val
+        assert round(color.hsla.h, 4) == expected
+
+    @pytest.mark.parametrize("val, expected", [
+        (1.35, 0.35),
+        (-1.2, 0.8),
+    ])
+    def test_valid_round_h(self, val, expected):
+        color = AlphaColor.from_hsla(0.75, 0.47, 0.29, 0.5)
+        color.hsla.h = val
+        assert round(color.hsla.h, 4) == expected
+
     @pytest.mark.parametrize("attr", [
         "r", "g",
     ])
