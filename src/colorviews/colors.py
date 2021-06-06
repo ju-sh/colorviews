@@ -85,30 +85,33 @@ class Color(BaseColor):
     Information is stored using rgb values.
     """
     @property
-    def rgb(self):
+    def rgb(self) -> colorviews.views.ColorViewRGB:
         """RGB colorview as float values"""
         return colorviews.views.ColorViewRGB(self)
 
     @property
-    def hsl(self):
+    def hsl(self) -> colorviews.views.ColorViewHSL:
         """HSL colorview as float values"""
         return colorviews.views.ColorViewHSL(self)
 
     @property
-    def hsv(self):
+    def hsv(self) -> colorviews.views.ColorViewHSV:
         """HSV colorview as float values"""
         return colorviews.views.ColorViewHSV(self)
 
     @property
-    def rgb_(self):
+    def rgb_(self) -> colorviews.views.ColorViewRGB_:
+        """RGB colorview as int values"""
         return colorviews.views.ColorViewRGB_(self)
 
     @property
-    def hsl_(self):
+    def hsl_(self) -> colorviews.views.ColorViewHSL_:
+        """HSL colorview as int values"""
         return colorviews.views.ColorViewHSL_(self)
 
     @property
-    def hsv_(self):
+    def hsv_(self) -> colorviews.views.ColorViewHSV_:
+        """HSV colorview as int values"""
         return colorviews.views.ColorViewHSV_(self)
 
     @classmethod
@@ -128,7 +131,7 @@ class Color(BaseColor):
         return cls.from_int(colorviews.names.COLOR_NAMES[name])
 
     @classmethod
-    def from_int(cls, value: int):
+    def from_int(cls, value: int) -> "Color":
         """
         Creates a Color object from the given integer color value.
 
@@ -139,7 +142,7 @@ class Color(BaseColor):
           Color object with given integer value.
 
         Raises:
-          ValueError: If value is outside the valid range.
+          ValueError: If any value is outside the valid range.
         """
         if value < 0 or value > 0xffffff:
             raise ValueError(f"{value}: invalid color value")
@@ -162,7 +165,7 @@ class Color(BaseColor):
           Color object with given RGB values.
 
         Raises:
-          ValueError: If value is outside the valid range.
+          ValueError: If any value is outside the valid range.
         """
         return cls(r, g, b)
 
@@ -228,7 +231,7 @@ class Color(BaseColor):
           Color object with given RGB values.
 
         Raises:
-          ValueError: If value is outside the valid range.
+          ValueError: If any value is outside the valid range.
         """
         return cls(r / 255, g / 255, b / 255)
 
@@ -263,11 +266,11 @@ class Color(BaseColor):
         Creates a Color object from the given HSV int values.
 
         Arguments:
-          h: Hue component of HSL value as an int. Modulo 360 value is stored
+          h: Hue component of HSV value as an int. Modulo 360 value is stored
              for values >= 360
-          s: Saturation component of HSL value as an int in the
+          s: Saturation component of HSV value as an int in the
              range [0, 100]
-          l: Lightness component of HSL value as an int in the
+          v: Value component of HSV value as an int in the
              range [0, 100]
 
         Returns:
@@ -314,30 +317,33 @@ class AlphaColor(BaseColor):
         return intval
 
     @property
-    def rgba(self):
+    def rgba(self) -> colorviews.views.ColorViewRGBA:
         """RGBA colorview as float values"""
         return colorviews.views.ColorViewRGBA(self)
 
     @property
-    def hsla(self):
+    def hsla(self) -> colorviews.views.ColorViewHSLA:
         """HSLA colorview as float values"""
         return colorviews.views.ColorViewHSLA(self)
 
     @property
-    def hsva(self):
+    def hsva(self) -> colorviews.views.ColorViewHSVA:
         """HSVA colorview as float values"""
         return colorviews.views.ColorViewHSVA(self)
 
     @property
-    def rgba_(self):
+    def rgba_(self) -> colorviews.views.ColorViewRGBA_:
+        """RGBA colorview as int values"""
         return colorviews.views.ColorViewRGBA_(self)
 
     @property
-    def hsla_(self):
+    def hsla_(self) -> colorviews.views.ColorViewHSLA_:
+        """HSLA colorview as int values"""
         return colorviews.views.ColorViewHSLA_(self)
 
     @property
-    def hsva_(self):
+    def hsva_(self) -> colorviews.views.ColorViewHSVA_:
+        """HSVA colorview as int values"""
         return colorviews.views.ColorViewHSVA_(self)
 
     @classmethod
@@ -375,7 +381,7 @@ class AlphaColor(BaseColor):
           AlphaColor object with given integer value.
 
         Raises:
-          ValueError: If value is outside the valid range.
+          ValueError: If any value is outside the valid range.
         """
         if value < 0 or value > 0xffffffff:
             raise ValueError(f"{value}: invalid alphacolor value")
@@ -400,7 +406,7 @@ class AlphaColor(BaseColor):
           AlphaColor object with given RGBA values.
 
         Raises:
-          ValueError: If value is outside the valid range.
+          ValueError: If any value is outside the valid range.
         """
         return cls(r, g, b, a)
 
@@ -421,7 +427,7 @@ class AlphaColor(BaseColor):
           AlphaColor object with given HSLA values.
 
         Raises:
-          ValueError: If value is outside the valid range.
+          ValueError: If any value is outside the valid range.
         """
         utils.validate(h)
         utils.validate(s)
@@ -447,7 +453,7 @@ class AlphaColor(BaseColor):
           AlphaColor object with given HSVA values.
 
         Raises:
-          ValueError: If value is outside the valid range.
+          ValueError: If any value is outside the valid range.
         """
         utils.validate(h)
         utils.validate(s)
@@ -458,10 +464,43 @@ class AlphaColor(BaseColor):
 
     @classmethod
     def from_rgba_(cls, r: int, g: int, b: int, a: int) -> "AlphaColor":
+        """
+        Creates a AlphaColor object from the given RGBA int values.
+
+        Arguments:
+          r: Red component of RGBA value as an int in the range [0, 255]
+          g: Green component of RGBA value as an int in the range [0, 255]
+          b: Blue component of RGBA value as an int in the range [0, 255]
+          a: Alpha component of RGBA value as an int in the range [0, 100]
+
+        Returns:
+          AlphaColor object with given RGBA values.
+
+        Raises:
+          ValueError: If any value is outside the valid range.
+        """
         return cls(r / 255, g / 255, b / 255, a / 100)
 
     @classmethod
     def from_hsla_(cls, h: int, s: int, l: int, a: int) -> "AlphaColor":
+        """
+        Creates a AlphaColor object from the given HSLA int values.
+
+        Arguments:
+          h: Hue component of HSLA value as an int. Modulo 360 value is stored
+             for values >= 360
+          s: Saturation component of HSLA value as an int in the
+             range [0, 100]
+          l: Lightness component of HSLA value as an int in the
+             range [0, 100]
+          a: Alpha component of HSVA value as a float in the range [0, 100].
+
+        Returns:
+          AlphaColor object with given HSLA values.
+
+        Raises:
+          ValueError: If any argument is outside valid range.
+        """
         h = utils.validate_angle(h)
         s = utils.validate_cent(s)
         l = utils.validate_cent(l)
@@ -471,6 +510,24 @@ class AlphaColor(BaseColor):
 
     @classmethod
     def from_hsva_(cls, h: float, s: float, v: float, a: float) -> "AlphaColor":
+        """
+        Creates an AlphaColor object from the given HSVA int values.
+
+        Arguments:
+          h: Hue component of HSVA value as an int. Modulo 360 value is stored
+             for values >= 360
+          s: Saturation component of HSVA value as an int in the
+             range [0, 100]
+          v: Value component of HSVA value as an int in the
+             range [0, 100]
+          a: Alpha component of HSVA value as a float in the range [0, 100].
+
+        Returns:
+          AlphaColor object with given HSVA values.
+
+        Raises:
+          ValueError: If any value is outside the valid range.
+        """
         h = utils.validate_angle(h)
         s = utils.validate_cent(s)
         v = utils.validate_cent(v)

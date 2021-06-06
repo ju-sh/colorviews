@@ -32,6 +32,9 @@ if TYPE_CHECKING:
 class BaseColorView:
     """
     Base class of all ColorView classes.
+
+    Attributes:
+      color: Color whose view is being handled.
     """
     __slots__ = ["color"]
 
@@ -140,6 +143,18 @@ class ColorViewRGB_(BaseColorViewRGB_):
         yield from [self.r, self.g, self.b]
 
     def replace(self, r=None, g=None, b=None) -> "colors.Color":
+        """
+        Create a new Color object by replacing the RGB values (as ints) of
+        the Color object associated with the colorview.
+
+        Arguments:
+          r: Red component of RGB value as an int in the range [0, 255]
+          g: Green component of RGB value as an int in the range [0, 255]
+          b: Blue component of RGB value as an int in the range [0, 255]
+
+        Returns:
+          Color object with modified RGB values.
+        """
         if r is None:
             r = self.r
         if g is None:
@@ -158,6 +173,9 @@ class ColorViewRGBA_(BaseColorViewRGB_, BaseAlphaColorView_):
 
     @property
     def vals(self) -> Sequence[int]:
+        """
+        Tuple of RGBA values as ints.
+        """
         return tuple(self)
 
     @vals.setter
@@ -174,6 +192,19 @@ class ColorViewRGBA_(BaseColorViewRGB_, BaseAlphaColorView_):
         yield from [self.r, self.g, self.b, self.a]
 
     def replace(self, r=None, g=None, b=None, a=None) -> "colors.AlphaColor":
+        """
+        Create a new AlphaColor object by replacing the RGBA values (as ints) of
+        the AlphaColor object associated with the colorview.
+
+        Arguments:
+          r: Red component of RGBA value as an int in the range [0, 255]
+          g: Green component of RGBA value as an int in the range [0, 255]
+          b: Blue component of RGBA value as an int in the range [0, 255]
+          a: Alpha component of RGBA value as an int in the range [0, 100]
+
+        Returns:
+          AlphaColor object with modified RGBA values.
+        """
         if r is None:
             r = self.r
         if g is None:
@@ -720,6 +751,9 @@ class ColorViewHSV_(BaseColorViewHSV_):
 
     @property
     def vals(self) -> Sequence[int]:
+        """
+        Tuple of HSV values as ints.
+        """
         return tuple(self)
 
     @vals.setter
@@ -734,6 +768,20 @@ class ColorViewHSV_(BaseColorViewHSV_):
         self.color.rgb.vals = rgb
 
     def replace(self, h=None, s=None, v=None) -> "colors.Color":
+        """
+        Create a new Color object by replacing the HSV values of the Color
+        object associated with the colorview.
+
+        Arguments:
+          h: Hue component of HSV value as an int. Resultant value will be
+             h modulo 360.
+          s: Saturation component of HSV value as an int in the
+             range [0, 100].
+          v: Value component of HSV value as an int in the range [0, 100].
+
+        Returns:
+          Color object with modified HSV values.
+        """
         hsv = list(self)
         if h is None:
             h = hsv[0]
@@ -755,6 +803,9 @@ class ColorViewHSVA_(BaseColorViewHSV_, BaseAlphaColorView_):
 
     @property
     def vals(self) -> Sequence[int]:
+        """
+        Tuple of HSVA values as ints.
+        """
         return tuple(self)
 
     @vals.setter
@@ -770,6 +821,21 @@ class ColorViewHSVA_(BaseColorViewHSV_, BaseAlphaColorView_):
         self.color.rgba.vals = rgb + (a / 100, )
 
     def replace(self, h=None, s=None, v=None, a=None) -> "colors.AlphaColor":
+        """
+        Create a new AlphaColor object by replacing the HSVA values of the AlphaColor
+        object associated with the colorview.
+
+        Arguments:
+          h: Hue component of HSVA value as an int. Resultant value will be
+             h modulo 360.
+          s: Saturation component of HSVA value as an int in the
+             range [0, 100].
+          v: Value component of HSVA value as an int in the range [0, 100].
+          a: Alpha component of HSVA value as an int in the range [0, 100].
+
+        Returns:
+          AlphaColor object with modified HSVA values.
+        """
         hsva = list(self)
         if h is None:
             h = hsva[0]
