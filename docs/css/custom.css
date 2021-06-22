@@ -1,0 +1,5 @@
+// https://pydata-sphinx-theme.readthedocs.io/en/latest/user_guide/customizing.html#custom-css
+
+:root {
+    --pst-font-size-base: 30px;
+}

@@ -1,23 +1,5 @@
 """
 ColorView classes for Color and AlphaColor objects
-
-For Color:
-
- - ColorViewRGB
- - ColorViewHSL
- - ColorViewHSV
- - ColorViewRGB_
- - ColorViewHSL_
- - ColorViewHSV_
-
-For AlphaColor:
-
- - ColorViewRGBA
- - ColorViewHSLA
- - ColorViewHSVA
- - ColorViewRGBA_
- - ColorViewHSLA_
- - ColorViewHSVA_
 """
 
 import colorsys
