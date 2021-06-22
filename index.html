@@ -1,0 +1,1395 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>colorviews - Documentation &#8212; colorviews 0.1a2 documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="#">
+<p class="title">colorviews</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-colorviews.colors">
+   Colors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#views">
+   Views
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indices-and-tables">
+   Indices and tables
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="colorviews-documentation">
+<h1>colorviews - Documentation<a class="headerlink" href="#colorviews-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-colorviews.colors">
+<span id="colors"></span><h2>Colors<a class="headerlink" href="#module-colorviews.colors" title="Permalink to this headline">¶</a></h2>
+<p>Classes to represent colors with and without alpha value.</p>
+<p>Color represents color values without alpha and AlphaColor represents color
+values that have alpha.</p>
+<dl class="py class">
+<dt id="colorviews.colors.Color">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.colors.</span></code><code class="sig-name descname"><span class="pre">Color</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.colors.Color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing colors without alpha value.</p>
+<p>Information is stored using rgb values.</p>
+<dl class="py method">
+<dt id="colorviews.colors.Color.rgb">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">rgb</span></code><a class="headerlink" href="#colorviews.colors.Color.rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>RGB colorview as float values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.hsl">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">hsl</span></code><a class="headerlink" href="#colorviews.colors.Color.hsl" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSL colorview as float values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.hsv">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">hsv</span></code><a class="headerlink" href="#colorviews.colors.Color.hsv" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSV colorview as float values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.rgb_">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">rgb_</span></code><a class="headerlink" href="#colorviews.colors.Color.rgb_" title="Permalink to this definition">¶</a></dt>
+<dd><p>RGB colorview as int values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.hsl_">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">hsl_</span></code><a class="headerlink" href="#colorviews.colors.Color.hsl_" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSL colorview as int values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.hsv_">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">hsv_</span></code><a class="headerlink" href="#colorviews.colors.Color.hsv_" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSV colorview as int values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.from_name">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.Color" title="colorviews.colors.Color"><span class="pre">colorviews.colors.Color</span></a><a class="headerlink" href="#colorviews.colors.Color.from_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Color object based on the given color name.</p>
+<p>Only CSS3 extended color keyword names are recognized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – Name of color.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with value corresponding to the given color name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.from_int">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_int</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.Color" title="colorviews.colors.Color"><span class="pre">colorviews.colors.Color</span></a><a class="headerlink" href="#colorviews.colors.Color.from_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Color object from the given integer color value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – Integer color value.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with given integer value.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any value is outside the valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.from_rgb">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_rgb</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.Color" title="colorviews.colors.Color"><span class="pre">colorviews.colors.Color</span></a><a class="headerlink" href="#colorviews.colors.Color.from_rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Color object from the given RGB float values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – Red component of RGB value as a float in the range [0.0, 1.0]</p></li>
+<li><p><strong>g</strong> – Green component of RGB value as a float in the range [0.0, 1.0]</p></li>
+<li><p><strong>b</strong> – Blue component of RGB value as a float in the range [0.0, 1.0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with given RGB values.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any value is outside the valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.from_hsl">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_hsl</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.Color" title="colorviews.colors.Color"><span class="pre">colorviews.colors.Color</span></a><a class="headerlink" href="#colorviews.colors.Color.from_hsl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Color object from the given HSL float values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSL value as a float in the range [0.0, 1.0]</p></li>
+<li><p><strong>s</strong> – Saturation component of HSL value as a float in the
+range [0.0, 1.0]</p></li>
+<li><p><strong>l</strong> – Lightness component of HSL value as a float in the
+range [0.0, 1.0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with given HSL values.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any argument is outside valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.from_hsv">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_hsv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.Color" title="colorviews.colors.Color"><span class="pre">colorviews.colors.Color</span></a><a class="headerlink" href="#colorviews.colors.Color.from_hsv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Color object from the given HSV float values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSV value as a float in the range [0.0, 1.0]</p></li>
+<li><p><strong>s</strong> – Saturation component of HSV value as a float in the
+range [0.0, 1.0]</p></li>
+<li><p><strong>v</strong> – Value component of HSV value as a float in the
+range [0.0, 1.0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with given HSV values.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any argument is outside valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.from_rgb_">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_rgb_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.Color" title="colorviews.colors.Color"><span class="pre">colorviews.colors.Color</span></a><a class="headerlink" href="#colorviews.colors.Color.from_rgb_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Color object from the given RGB unsigned int values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – Red component of RGB value as an int in the range [0, 255]</p></li>
+<li><p><strong>g</strong> – Green component of RGB value as an int in the range [0, 255]</p></li>
+<li><p><strong>b</strong> – Blue component of RGB value as an int in the range [0, 255]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with given RGB values.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any value is outside the valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.from_hsl_">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_hsl_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.Color" title="colorviews.colors.Color"><span class="pre">colorviews.colors.Color</span></a><a class="headerlink" href="#colorviews.colors.Color.from_hsl_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Color object from the given HSL int values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSL value as an int. Modulo 360 value is stored
+for values &gt;= 360</p></li>
+<li><p><strong>s</strong> – Saturation component of HSL value as an int in the
+range [0, 100]</p></li>
+<li><p><strong>l</strong> – Lightness component of HSL value as an int in the
+range [0, 100]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with given HSL values.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any argument is outside valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.from_hsv_">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_hsv_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.Color" title="colorviews.colors.Color"><span class="pre">colorviews.colors.Color</span></a><a class="headerlink" href="#colorviews.colors.Color.from_hsv_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Color object from the given HSV int values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSV value as an int. Modulo 360 value is stored
+for values &gt;= 360</p></li>
+<li><p><strong>s</strong> – Saturation component of HSV value as an int in the
+range [0, 100]</p></li>
+<li><p><strong>v</strong> – Value component of HSV value as an int in the
+range [0, 100]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with given HSV values.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any argument is outside valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.Color.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.Color" title="colorviews.colors.Color"><span class="pre">colorviews.colors.Color</span></a><a class="headerlink" href="#colorviews.colors.Color.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a copy of the Color object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An identical copy of the Color object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="colorviews.colors.AlphaColor">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.colors.</span></code><code class="sig-name descname"><span class="pre">AlphaColor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.colors.AlphaColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing colors with alpha value.</p>
+<p>Information is stored using rgba values.</p>
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.rgba">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">rgba</span></code><a class="headerlink" href="#colorviews.colors.AlphaColor.rgba" title="Permalink to this definition">¶</a></dt>
+<dd><p>RGBA colorview as float values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.hsla">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">hsla</span></code><a class="headerlink" href="#colorviews.colors.AlphaColor.hsla" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSLA colorview as float values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.hsva">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">hsva</span></code><a class="headerlink" href="#colorviews.colors.AlphaColor.hsva" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSVA colorview as float values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.rgba_">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">rgba_</span></code><a class="headerlink" href="#colorviews.colors.AlphaColor.rgba_" title="Permalink to this definition">¶</a></dt>
+<dd><p>RGBA colorview as int values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.hsla_">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">hsla_</span></code><a class="headerlink" href="#colorviews.colors.AlphaColor.hsla_" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSLA colorview as int values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.hsva_">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">hsva_</span></code><a class="headerlink" href="#colorviews.colors.AlphaColor.hsva_" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSVA colorview as int values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.from_name">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.AlphaColor" title="colorviews.colors.AlphaColor"><span class="pre">colorviews.colors.AlphaColor</span></a><a class="headerlink" href="#colorviews.colors.AlphaColor.from_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an AlphaColor object based on the given color name.</p>
+<p>Only CSS3 extended color keyword names are recognized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of color.</p></li>
+<li><p><strong>a</strong> – Alpha value of color as a float in the range [0.0, 1.0].
+Default value is 0.0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with value corresponding to the given color name
+and alpha value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.from_int">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_int</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.AlphaColor" title="colorviews.colors.AlphaColor"><span class="pre">colorviews.colors.AlphaColor</span></a><a class="headerlink" href="#colorviews.colors.AlphaColor.from_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an AlphaColor object from the given integer color value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – Integer color value.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with given integer value.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any value is outside the valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.from_rgba">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_rgba</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.AlphaColor" title="colorviews.colors.AlphaColor"><span class="pre">colorviews.colors.AlphaColor</span></a><a class="headerlink" href="#colorviews.colors.AlphaColor.from_rgba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an AlphaColor object from the given RGBA float values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – Red component of RGBA value as a float in the range [0.0, 1.0].</p></li>
+<li><p><strong>g</strong> – Green component of RGBA value as a float in the range [0.0, 1.0].</p></li>
+<li><p><strong>b</strong> – Blue component of RGBA value as a float in the range [0.0, 1.0].</p></li>
+<li><p><strong>a</strong> – Alpha component of RGBA value as a float in the range [0.0, 1.0].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with given RGBA values.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any value is outside the valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.from_hsla">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_hsla</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.AlphaColor" title="colorviews.colors.AlphaColor"><span class="pre">colorviews.colors.AlphaColor</span></a><a class="headerlink" href="#colorviews.colors.AlphaColor.from_hsla" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an AlphaColor object from the given HSLA float values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSLA value as a float in the range [0.0, 1.0]</p></li>
+<li><p><strong>s</strong> – Saturation component of HSLA value as a float in the
+range [0.0, 1.0].</p></li>
+<li><p><strong>l</strong> – Lightness component of HSLA value as a float in the
+range [0.0, 1.0].</p></li>
+<li><p><strong>a</strong> – Alpha component of HSLA value as a float in the range [0.0, 1.0].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with given HSLA values.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any value is outside the valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.from_hsva">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_hsva</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.AlphaColor" title="colorviews.colors.AlphaColor"><span class="pre">colorviews.colors.AlphaColor</span></a><a class="headerlink" href="#colorviews.colors.AlphaColor.from_hsva" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an AlphaColor object from the given HSVA float values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSVA value as a float in the range [0.0, 1.0]</p></li>
+<li><p><strong>s</strong> – Saturation component of HSVA value as a float in the
+range [0.0, 1.0].</p></li>
+<li><p><strong>v</strong> – Value component of HSVA value as a float in the
+range [0.0, 1.0].</p></li>
+<li><p><strong>a</strong> – Alpha component of HSVA value as a float in the range [0.0, 1.0].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with given HSVA values.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any value is outside the valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.from_rgba_">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_rgba_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.AlphaColor" title="colorviews.colors.AlphaColor"><span class="pre">colorviews.colors.AlphaColor</span></a><a class="headerlink" href="#colorviews.colors.AlphaColor.from_rgba_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a AlphaColor object from the given RGBA int values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – Red component of RGBA value as an int in the range [0, 255]</p></li>
+<li><p><strong>g</strong> – Green component of RGBA value as an int in the range [0, 255]</p></li>
+<li><p><strong>b</strong> – Blue component of RGBA value as an int in the range [0, 255]</p></li>
+<li><p><strong>a</strong> – Alpha component of RGBA value as an int in the range [0, 100]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with given RGBA values.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any value is outside the valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.from_hsla_">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_hsla_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.AlphaColor" title="colorviews.colors.AlphaColor"><span class="pre">colorviews.colors.AlphaColor</span></a><a class="headerlink" href="#colorviews.colors.AlphaColor.from_hsla_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a AlphaColor object from the given HSLA int values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSLA value as an int. Modulo 360 value is stored
+for values &gt;= 360</p></li>
+<li><p><strong>s</strong> – Saturation component of HSLA value as an int in the
+range [0, 100]</p></li>
+<li><p><strong>l</strong> – Lightness component of HSLA value as an int in the
+range [0, 100]</p></li>
+<li><p><strong>a</strong> – Alpha component of HSVA value as a float in the range [0, 100].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with given HSLA values.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any argument is outside valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.from_hsva_">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_hsva_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.AlphaColor" title="colorviews.colors.AlphaColor"><span class="pre">colorviews.colors.AlphaColor</span></a><a class="headerlink" href="#colorviews.colors.AlphaColor.from_hsva_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an AlphaColor object from the given HSVA int values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSVA value as an int. Modulo 360 value is stored
+for values &gt;= 360</p></li>
+<li><p><strong>s</strong> – Saturation component of HSVA value as an int in the
+range [0, 100]</p></li>
+<li><p><strong>v</strong> – Value component of HSVA value as an int in the
+range [0, 100]</p></li>
+<li><p><strong>a</strong> – Alpha component of HSVA value as a float in the range [0, 100].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with given HSVA values.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If any value is outside the valid range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.colors.AlphaColor.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#colorviews.colors.AlphaColor" title="colorviews.colors.AlphaColor"><span class="pre">colorviews.colors.AlphaColor</span></a><a class="headerlink" href="#colorviews.colors.AlphaColor.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a copy of the AlphaColor object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An identical copy of the AlphaColor object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="views">
+<h2>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h2>
+<p>For <a class="reference internal" href="#colorviews.colors.Color" title="colorviews.colors.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#colorviews.views.ColorViewRGB" title="colorviews.views.ColorViewRGB"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorViewRGB</span></code></a></p></li>
+<li><p><a class="reference internal" href="#colorviews.views.ColorViewHSL" title="colorviews.views.ColorViewHSL"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorViewHSL</span></code></a></p></li>
+<li><p><a class="reference internal" href="#colorviews.views.ColorViewHSV" title="colorviews.views.ColorViewHSV"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorViewHSV</span></code></a></p></li>
+<li><p><a class="reference internal" href="#colorviews.views.ColorViewRGB_" title="colorviews.views.ColorViewRGB_"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorViewRGB_</span></code></a></p></li>
+<li><p><a class="reference internal" href="#colorviews.views.ColorViewHSL_" title="colorviews.views.ColorViewHSL_"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorViewHSL_</span></code></a></p></li>
+<li><p><a class="reference internal" href="#colorviews.views.ColorViewHSV_" title="colorviews.views.ColorViewHSV_"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorViewHSV_</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<p>For <a class="reference internal" href="#colorviews.colors.AlphaColor" title="colorviews.colors.AlphaColor"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlphaColor</span></code></a>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#colorviews.views.ColorViewRGBA" title="colorviews.views.ColorViewRGBA"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorViewRGBA</span></code></a></p></li>
+<li><p><a class="reference internal" href="#colorviews.views.ColorViewHSLA" title="colorviews.views.ColorViewHSLA"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorViewHSLA</span></code></a></p></li>
+<li><p><a class="reference internal" href="#colorviews.views.ColorViewHSVA" title="colorviews.views.ColorViewHSVA"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorViewHSVA</span></code></a></p></li>
+<li><p><a class="reference internal" href="#colorviews.views.ColorViewRGBA_" title="colorviews.views.ColorViewRGBA_"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorViewRGBA_</span></code></a></p></li>
+<li><p><a class="reference internal" href="#colorviews.views.ColorViewHSLA_" title="colorviews.views.ColorViewHSLA_"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorViewHSLA_</span></code></a></p></li>
+<li><p><a class="reference internal" href="#colorviews.views.ColorViewHSVA_" title="colorviews.views.ColorViewHSVA_"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorViewHSVA_</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<span class="target" id="module-colorviews.views"></span><p>ColorView classes for Color and AlphaColor objects</p>
+<dl class="py class">
+<dt id="colorviews.views.ColorViewRGB_">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.views.</span></code><code class="sig-name descname"><span class="pre">ColorViewRGB_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">colors.BaseColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.views.ColorViewRGB_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rounded int RGB view of Color objects.</p>
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGB_.vals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vals</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGB_.vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of RGB values as ints.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGB_.replace">
+<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">colors.Color</span><a class="headerlink" href="#colorviews.views.ColorViewRGB_.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new Color object by replacing the RGB values (as ints) of
+the Color object associated with the colorview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – Red component of RGB value as an int in the range [0, 255]</p></li>
+<li><p><strong>g</strong> – Green component of RGB value as an int in the range [0, 255]</p></li>
+<li><p><strong>b</strong> – Blue component of RGB value as an int in the range [0, 255]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with modified RGB values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGB_.b">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">b</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGB_.b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blue component as an int value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="colorviews.views.ColorViewRGB_.color">
+<code class="sig-name descname"><span class="pre">color</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGB_.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGB_.g">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">g</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGB_.g" title="Permalink to this definition">¶</a></dt>
+<dd><p>Green component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGB_.r">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">r</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGB_.r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Red component as an int value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="colorviews.views.ColorViewRGBA_">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.views.</span></code><code class="sig-name descname"><span class="pre">ColorViewRGBA_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">colors.BaseColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.views.ColorViewRGBA_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rounded int RGBA view of AlphaColor objects.</p>
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGBA_.vals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vals</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGBA_.vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of RGBA values as ints.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGBA_.replace">
+<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">colors.AlphaColor</span><a class="headerlink" href="#colorviews.views.ColorViewRGBA_.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new AlphaColor object by replacing the RGBA values (as ints) of
+the AlphaColor object associated with the colorview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – Red component of RGBA value as an int in the range [0, 255]</p></li>
+<li><p><strong>g</strong> – Green component of RGBA value as an int in the range [0, 255]</p></li>
+<li><p><strong>b</strong> – Blue component of RGBA value as an int in the range [0, 255]</p></li>
+<li><p><strong>a</strong> – Alpha component of RGBA value as an int in the range [0, 100]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with modified RGBA values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGBA_.a">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">a</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGBA_.a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alpha component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGBA_.b">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">b</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGBA_.b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blue component as an int value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="colorviews.views.ColorViewRGBA_.color">
+<code class="sig-name descname"><span class="pre">color</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGBA_.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGBA_.g">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">g</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGBA_.g" title="Permalink to this definition">¶</a></dt>
+<dd><p>Green component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGBA_.r">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">r</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGBA_.r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Red component as an int value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="colorviews.views.ColorViewRGB">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.views.</span></code><code class="sig-name descname"><span class="pre">ColorViewRGB</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">colors.BaseColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.views.ColorViewRGB" title="Permalink to this definition">¶</a></dt>
+<dd><p>RGB view of Color objects in float values</p>
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGB.vals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vals</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGB.vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of RGB values as floats.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGB.replace">
+<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">colors.Color</span><a class="headerlink" href="#colorviews.views.ColorViewRGB.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new Color object by replacing the RGB values of the Color
+object associated with the colorview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – Red component of RGB value as a float in the range [0, 0.1].</p></li>
+<li><p><strong>g</strong> – Green component of RGB value as a float in the range [0, 0.1].</p></li>
+<li><p><strong>b</strong> – Blue component of RGB value as a float in the range [0, 0.1].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with modified RGB values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGB.b">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">b</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGB.b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blue component as a float value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="colorviews.views.ColorViewRGB.color">
+<code class="sig-name descname"><span class="pre">color</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGB.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGB.g">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">g</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGB.g" title="Permalink to this definition">¶</a></dt>
+<dd><p>Green component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGB.r">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">r</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGB.r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Red component as a float value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="colorviews.views.ColorViewRGBA">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.views.</span></code><code class="sig-name descname"><span class="pre">ColorViewRGBA</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">colors.BaseColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.views.ColorViewRGBA" title="Permalink to this definition">¶</a></dt>
+<dd><p>RGBA view of Color objects in float values</p>
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGBA.vals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vals</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGBA.vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of RGBA values as floats.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGBA.replace">
+<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">colors.AlphaColor</span><a class="headerlink" href="#colorviews.views.ColorViewRGBA.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new Color object by replacing the RGBA values of the Color
+object associated with the colorview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> – Red component of RGBA value as a float in the range [0, 0.1].</p></li>
+<li><p><strong>g</strong> – Green component of RGBA value as a float in the range [0, 0.1].</p></li>
+<li><p><strong>b</strong> – Blue component of RGBA value as a float in the range [0, 0.1].</p></li>
+<li><p><strong>a</strong> – Alpha component of RGBA value as a float in the range [0, 0.1].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with modified RGBA values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGBA.a">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">a</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGBA.a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alpha component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGBA.b">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">b</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGBA.b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blue component as a float value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="colorviews.views.ColorViewRGBA.color">
+<code class="sig-name descname"><span class="pre">color</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGBA.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGBA.g">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">g</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGBA.g" title="Permalink to this definition">¶</a></dt>
+<dd><p>Green component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewRGBA.r">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">r</span></code><a class="headerlink" href="#colorviews.views.ColorViewRGBA.r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Red component as a float value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="colorviews.views.ColorViewHSL_">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.views.</span></code><code class="sig-name descname"><span class="pre">ColorViewHSL_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">colors.BaseColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.views.ColorViewHSL_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rounded int HSL view of Color objects.</p>
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSL_.vals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vals</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSL_.vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of HSL values as ints.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSL_.replace">
+<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">colors.Color</span><a class="headerlink" href="#colorviews.views.ColorViewHSL_.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new Color object by replacing the HSL values of the Color
+object associated with the colorview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSL value as an int. Resultant value will be
+h modulo 360.</p></li>
+<li><p><strong>s</strong> – Saturation component of HSL value as an int in the
+range [0, 100].</p></li>
+<li><p><strong>l</strong> – Lightness component of HSL value as an int in the range [0, 100].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with modified HSL values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="colorviews.views.ColorViewHSL_.color">
+<code class="sig-name descname"><span class="pre">color</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSL_.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSL_.h">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">h</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSL_.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hue component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSL_.l">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">l</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSL_.l" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lightness component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSL_.s">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">s</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSL_.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saturation component as an int value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="colorviews.views.ColorViewHSLA_">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.views.</span></code><code class="sig-name descname"><span class="pre">ColorViewHSLA_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">colors.BaseColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.views.ColorViewHSLA_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rounded int HSLA view of AlphaColor objects.</p>
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSLA_.vals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vals</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSLA_.vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of HSLA values as ints.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSLA_.replace">
+<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">colors.AlphaColor</span><a class="headerlink" href="#colorviews.views.ColorViewHSLA_.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new AlphaColor object by replacing the HSLA values of the
+AlphaColor object associated with the colorview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSLA value as a float. Resultant value will be
+h modulo 360</p></li>
+<li><p><strong>s</strong> – Saturation component of HSLA value as a float in the
+range [0, 100].</p></li>
+<li><p><strong>l</strong> – Lightness component of HSLA value as a float in the
+range [0, 100].</p></li>
+<li><p><strong>a</strong> – Alpha component of HSLA value as a float in the range [0, 100].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with modified HSLA values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSLA_.a">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">a</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSLA_.a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alpha component as an int value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="colorviews.views.ColorViewHSLA_.color">
+<code class="sig-name descname"><span class="pre">color</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSLA_.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSLA_.h">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">h</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSLA_.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hue component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSLA_.l">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">l</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSLA_.l" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lightness component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSLA_.s">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">s</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSLA_.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saturation component as an int value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="colorviews.views.ColorViewHSL">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.views.</span></code><code class="sig-name descname"><span class="pre">ColorViewHSL</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">colors.BaseColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.views.ColorViewHSL" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSL view of Color objects in float values</p>
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSL.vals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vals</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSL.vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of HSL values as floats.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSL.replace">
+<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">colors.Color</span><a class="headerlink" href="#colorviews.views.ColorViewHSL.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new Color object by replacing the HSL values of the Color
+object associated with the colorview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSL value as a float. Resultant value will be
+h modulo 1.0</p></li>
+<li><p><strong>s</strong> – Saturation component of HSL value as a float in the
+range [0, 0.1].</p></li>
+<li><p><strong>l</strong> – Lightness component of HSL value as a float in the range [0, 0.1].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with modified HSL values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="colorviews.views.ColorViewHSL.color">
+<code class="sig-name descname"><span class="pre">color</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSL.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSL.h">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">h</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSL.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hue component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSL.l">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">l</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSL.l" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lightness component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSL.s">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">s</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSL.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saturation component as a float value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="colorviews.views.ColorViewHSLA">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.views.</span></code><code class="sig-name descname"><span class="pre">ColorViewHSLA</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">colors.BaseColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.views.ColorViewHSLA" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSLA view of Color objects in float values</p>
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSLA.vals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vals</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSLA.vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of HSLA values as floats.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSLA.replace">
+<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">colors.AlphaColor</span><a class="headerlink" href="#colorviews.views.ColorViewHSLA.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new AlphaColor object by replacing the HSLA values of the
+AlphaColor object associated with the colorview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSLA value as a float. Resultant value will be
+h modulo 1.0</p></li>
+<li><p><strong>s</strong> – Saturation component of HSLA value as a float in the
+range [0, 0.1].</p></li>
+<li><p><strong>l</strong> – Lightness component of HSLA value as a float in the
+range [0, 0.1].</p></li>
+<li><p><strong>a</strong> – Alpha component of HSLA value as a float in the range [0, 0.1].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with modified HSLA values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSLA.a">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">a</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSLA.a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alpha component as a float value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="colorviews.views.ColorViewHSLA.color">
+<code class="sig-name descname"><span class="pre">color</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSLA.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSLA.h">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">h</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSLA.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hue component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSLA.l">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">l</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSLA.l" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lightness component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSLA.s">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">s</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSLA.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saturation component as a float value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="colorviews.views.ColorViewHSV_">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.views.</span></code><code class="sig-name descname"><span class="pre">ColorViewHSV_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">colors.BaseColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.views.ColorViewHSV_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rounded int HSV view of Color objects.</p>
+<dl class="py attribute">
+<dt id="colorviews.views.ColorViewHSV_.color">
+<code class="sig-name descname"><span class="pre">color</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSV_.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSV_.h">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">h</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSV_.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hue component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSV_.s">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">s</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSV_.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saturation component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSV_.v">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSV_.v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSV_.vals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vals</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSV_.vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of HSV values as ints.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSV_.replace">
+<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">colors.Color</span><a class="headerlink" href="#colorviews.views.ColorViewHSV_.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new Color object by replacing the HSV values of the Color
+object associated with the colorview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSV value as an int. Resultant value will be
+h modulo 360.</p></li>
+<li><p><strong>s</strong> – Saturation component of HSV value as an int in the
+range [0, 100].</p></li>
+<li><p><strong>v</strong> – Value component of HSV value as an int in the range [0, 100].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with modified HSV values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="colorviews.views.ColorViewHSVA_">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.views.</span></code><code class="sig-name descname"><span class="pre">ColorViewHSVA_</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">colors.BaseColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.views.ColorViewHSVA_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rounded integer HSVA view of AlphaColor objects.</p>
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSVA_.a">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">a</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSVA_.a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alpha component as an int value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="colorviews.views.ColorViewHSVA_.color">
+<code class="sig-name descname"><span class="pre">color</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSVA_.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSVA_.h">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">h</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSVA_.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hue component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSVA_.s">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">s</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSVA_.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saturation component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSVA_.v">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSVA_.v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value component as an int value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSVA_.vals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vals</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSVA_.vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of HSVA values as ints.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSVA_.replace">
+<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">colors.AlphaColor</span><a class="headerlink" href="#colorviews.views.ColorViewHSVA_.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new AlphaColor object by replacing the HSVA values of the AlphaColor
+object associated with the colorview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSVA value as an int. Resultant value will be
+h modulo 360.</p></li>
+<li><p><strong>s</strong> – Saturation component of HSVA value as an int in the
+range [0, 100].</p></li>
+<li><p><strong>v</strong> – Value component of HSVA value as an int in the range [0, 100].</p></li>
+<li><p><strong>a</strong> – Alpha component of HSVA value as an int in the range [0, 100].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with modified HSVA values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="colorviews.views.ColorViewHSV">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.views.</span></code><code class="sig-name descname"><span class="pre">ColorViewHSV</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">colors.BaseColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.views.ColorViewHSV" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSV view of Color objects in float values</p>
+<dl class="py attribute">
+<dt id="colorviews.views.ColorViewHSV.color">
+<code class="sig-name descname"><span class="pre">color</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSV.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSV.h">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">h</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSV.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hue component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSV.s">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">s</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSV.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saturation component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSV.v">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSV.v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSV.vals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vals</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSV.vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of HSV values as floats.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSV.replace">
+<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">colors.Color</span><a class="headerlink" href="#colorviews.views.ColorViewHSV.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new Color object by replacing the HSV values of the Color
+object associated with the colorview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSV value as a float in the range [0, 0.1].</p></li>
+<li><p><strong>s</strong> – Saturation component of HSV value as a float in the
+range [0, 0.1].</p></li>
+<li><p><strong>v</strong> – Value component of HSV value as a float in the range [0, 0.1].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Color object with modified HSV values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="colorviews.views.ColorViewHSVA">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">colorviews.views.</span></code><code class="sig-name descname"><span class="pre">ColorViewHSVA</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">colors.BaseColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colorviews.views.ColorViewHSVA" title="Permalink to this definition">¶</a></dt>
+<dd><p>HSVA view of Color objects in float values</p>
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSVA.a">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">a</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSVA.a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alpha component as a float value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="colorviews.views.ColorViewHSVA.color">
+<code class="sig-name descname"><span class="pre">color</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSVA.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSVA.h">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">h</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSVA.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hue component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSVA.s">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">s</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSVA.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saturation component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSVA.v">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSVA.v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value component as a float value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSVA.vals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vals</span></code><a class="headerlink" href="#colorviews.views.ColorViewHSVA.vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of HSVA values as floats.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="colorviews.views.ColorViewHSVA.replace">
+<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">colors.AlphaColor</span><a class="headerlink" href="#colorviews.views.ColorViewHSVA.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new AlphaColor object by replacing the HSVA values of the
+AlphaColor object associated with the colorview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – Hue component of HSVA value as a float in the range [0, 0.1].</p></li>
+<li><p><strong>s</strong> – Saturation component of HSVA value as a float in the
+range [0, 0.1].</p></li>
+<li><p><strong>v</strong> – Value component of HSVA value as a float in the
+range [0, 0.1].</p></li>
+<li><p><strong>a</strong> – Alpha component of HSVA value as a float in the range [0, 0.1].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AlphaColor object with modified HSVA values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Julin S.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
